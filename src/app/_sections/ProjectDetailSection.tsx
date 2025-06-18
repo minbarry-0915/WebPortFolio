@@ -9,6 +9,7 @@ import { ReactNode } from 'react';
 
 interface ProjectDetailItem extends ProjectItem {
 	tagline: string;
+	mainImage?: string;
 }
 
 const projectDetails: ProjectDetailItem[] = [
@@ -81,16 +82,20 @@ const projectDetails: ProjectDetailItem[] = [
 
 interface WebMobileIconProps {
 	webMobile: ProjectItem['webMobile'];
+	color?: string;
 }
 
-const WebMobileIcon = ({ webMobile }: WebMobileIconProps): ReactNode => {
+const WebMobileIcon = ({
+	webMobile,
+	color = 'text-black',
+}: WebMobileIconProps): ReactNode => {
 	switch (webMobile) {
 		case 'webMobile':
 			return <></>;
 		case 'web':
-			return <ComputerDesktopIcon className='w-6 h-6 text-black stroke-1' />;
+			return <ComputerDesktopIcon className={`w-6 h-6 ${color} stroke-1`} />;
 		case 'mobile':
-			return <DevicePhoneMobileIcon className='w-6 h-6 text-black stroke-1' />;
+			return <DevicePhoneMobileIcon className={`w-6 h-6 ${color} stroke-1`} />;
 	}
 };
 
@@ -104,27 +109,30 @@ const ProjectDetailSection = () => {
 				{projectDetails.map((item, index) => (
 					<div
 						key={index}
-						className='flex flex-col bg-amber-200 rounded-2xl p-4'
+						className='flex flex-col bg-gray-400 shadow-lg rounded-2xl p-4 text-white'
 					>
 						<div className='flex flex-col gap-2 mb-9'>
 							<div className='flex justify-between items-center'>
 								<p className='font-bold text-[1.125rem] leading-[1.875rem]'>
 									{item.title}
 								</p>
-								<WebMobileIcon webMobile={item.webMobile} />
+								<WebMobileIcon
+									webMobile={item.webMobile}
+									color={'text-white'}
+								/>
 							</div>
-							<p className='font-bold text-2xl leading-9 mr-6'>
+							<div className='font-bold text-2xl leading-9 mr-6'>
 								{(() => {
 									const taglines = item.tagline.split(', ');
 									return (
 										<>
 											{taglines.map((tagItem, index) => (
-												<div key={index}>{tagItem}</div>
+												<p key={index}>{tagItem}</p>
 											))}
 										</>
 									);
 								})()}
-							</p>
+							</div>
 							<p className='text-base leading-7 mr-6'>{item.description}</p>
 							<p className='text-base leading-7'>
 								{item.startDate} - {item.endDate ?? '진행중'}

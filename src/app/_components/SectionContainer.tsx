@@ -14,7 +14,7 @@ const SectionContainer = ({
 }: SectionContainerProps) => {
 	return (
 		<SlideUpInView>
-			<div className='w-full flex flex-col justify-center mb-60 '>
+			<div className='w-full flex flex-col justify-center '>
 				<p className='font-normal text-2xl leading-9 text-blue mb-[1.125rem]'>
 					{title}
 				</p>
