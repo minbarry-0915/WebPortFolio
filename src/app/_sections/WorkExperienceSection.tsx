@@ -2,11 +2,11 @@ import Seperator from '../_components/Seperator';
 import ExperienceCard from '../_components/ExperienceCard';
 import SectionContainer from '../_components/SectionContainer';
 
-interface ProjectItem {
+export interface ProjectItem {
+	title: string;
+	webMobile: 'web' | 'mobile' | 'webMobile';
 	startDate: string;
 	endDate?: string;
-	webMobile: 'web' | 'mobile' | 'webMobile';
-	title: string;
 	description: string;
 	detail?: string[];
 }
@@ -82,7 +82,7 @@ const projectDummy: ProjectItem[] = [
 
 const WorkExperienceSection = () => {
 	return (
-		<SectionContainer title='경력사항' subtitle='경험과 성장의 기록들'>
+		<SectionContainer title='경력사항' subtitle='경험과 성장의 기록들.'>
 			<Seperator title='프로젝트' />
 			<div className='flex flex-col mt-6 gap-9'>
 				{projectDummy.map((item, index) => (

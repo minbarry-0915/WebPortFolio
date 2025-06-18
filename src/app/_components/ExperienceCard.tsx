@@ -77,7 +77,7 @@ const ExperienceCard = ({ item }: ExperienceCardProps) => {
 					</p>
 				</button>
 				{isExpanded && (
-					<ul className='list-disc list-inside rounded-xl bg-white -indent-6 py-5 pl-12 md:pl-13 pr-10 ml-11 mt-2.5'>
+					<ul className='list-disc list-inside rounded-xl bg-foreground/5 -indent-6 py-5 pl-12 md:pl-13 pr-10 ml-11 mt-2.5'>
 						{item.detail &&
 							item.detail.map((ditem, index) => (
 								<li key={index} className='text-[1.125rem] leading-[1.825rem]'>

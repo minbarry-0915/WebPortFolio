@@ -91,7 +91,7 @@ const SkillSection = () => {
 					아래의 기술을 사용할 수 있습니다.
 				</div>
 
-				<div className='grid lg:grid-cols-7 md:grid-cols-4 grid-cols-3  lg:grid-rows-2 justify-center items-center gap-2 p-4 '>
+				<div className='grid lg:grid-cols-7 md:grid-cols-4 grid-cols-3 lg:grid-rows-2 justify-center items-center gap-2 p-4 '>
 					{SKILLDUMMY.map((item, index) => (
 						<div
 							key={index}

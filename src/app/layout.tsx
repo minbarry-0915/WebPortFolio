@@ -13,8 +13,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='ko' className={gothicNeo.variable}>
-			<body>{children}</body>
+		<html lang='ko'>
+			<body className={gothicNeo.className}>{children}</body>
 		</html>
 	);
 }

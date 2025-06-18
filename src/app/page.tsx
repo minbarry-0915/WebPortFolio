@@ -1,4 +1,5 @@
 import MainSection from './_sections/MainSection';
+import ProjectDetailSection from './_sections/ProjectDetailSection';
 import SkillSection from './_sections/SkillSection';
 import WorkExperienceSection from './_sections/WorkExperienceSection';
 
@@ -8,6 +9,7 @@ export default function Home() {
 			<MainSection />
 			<SkillSection />
 			<WorkExperienceSection />
+			<ProjectDetailSection />
 		</main>
 	);
 }
