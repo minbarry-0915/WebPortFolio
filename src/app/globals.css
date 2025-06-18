@@ -1,26 +1,66 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+	--background: #e2e2e2;
+	--foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
+}
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-blue: #0071e3;
+	--color-black: #2e2e30;
 }
 
+/* 
+Tailwind CSS 기본 폰트 크기 (글자 크기) 클래스별 크기 예시:
+
+text-xs   -> 0.75rem  (12px)
+text-sm   -> 0.875rem (14px)
+text-base -> 1rem     (16px, 기본 크기)
+text-lg   -> 1.125rem (18px)
+text-xl   -> 1.25rem  (20px)    ← 여기서 'text-xl'을 쓰면 글씨 크기가 약 20px 입니다.
+text-2xl  -> 1.5rem   (24px)
+text-3xl  -> 1.875rem (30px)
+text-4xl  -> 2.25rem  (36px)
+text-5xl  -> 3rem     (48px)
+
+예시:
+<h1 className="text-xl font-semibold">
+  안녕하세요
+</h1>
+*/
+
+/* 최종 적용 */
+
+html {
+	overflow-y: scroll;
+}
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-sans); /* 수정됨 */
+}
+
+/* temp */
+/* div {
+	border: 2px solid black;
+} */
+
+@layer base {
+}
+
+@layer components {
+	.overview-frame {
+		scrollbar-width: none;
+	}
+	.overview-frame.box::-webkit-scrollbar {
+		display: none;
+	}
 }
