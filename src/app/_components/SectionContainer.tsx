@@ -19,7 +19,7 @@ const SectionContainer = ({
 					{title}
 				</p>
 				<h1 className='font-semibold text-4xl leading-12 text-black mb-9'>
-					{subtitle}
+					{subtitle} 하하하
 				</h1>
 				{children}
 			</div>
