@@ -109,9 +109,9 @@ const ProjectDetailSection = () => {
 				{projectDetails.map((item, index) => (
 					<div
 						key={index}
-						className='flex flex-col bg-gray-400 shadow-lg rounded-2xl p-4 text-white'
+						className='flex flex-col bg-gray-400 shadow-lg rounded-2xl p-[1.125rem] text-white'
 					>
-						<div className='flex flex-col gap-2 mb-9'>
+						<div className='flex flex-col gap-2'>
 							<div className='flex justify-between items-center'>
 								<p className='font-bold text-[1.125rem] leading-[1.875rem]'>
 									{item.title}
