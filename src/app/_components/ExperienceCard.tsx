@@ -30,9 +30,13 @@ const WebMobileIcon = ({ webMobile }: WebMobileIconProps): ReactNode => {
 		case 'webMobile':
 			return <></>;
 		case 'web':
-			return <ComputerDesktopIcon className='w-9 h-9 text-black stroke-1' />;
+			return (
+				<ComputerDesktopIcon className='w-9 h-9 text-foreground stroke-1' />
+			);
 		case 'mobile':
-			return <DevicePhoneMobileIcon className='w-9 h-9 text-black stroke-1' />;
+			return (
+				<DevicePhoneMobileIcon className='w-9 h-9 text-foreground stroke-1' />
+			);
 	}
 };
 

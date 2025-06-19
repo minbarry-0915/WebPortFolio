@@ -18,9 +18,7 @@ const SectionContainer = ({
 				<p className='font-normal text-2xl leading-9 text-blue mb-[1.125rem]'>
 					{title}
 				</p>
-				<h1 className='font-semibold text-4xl leading-12 text-black mb-9'>
-					{subtitle}
-				</h1>
+				<h1 className='font-semibold text-4xl leading-12 mb-9'>{subtitle}</h1>
 				{children}
 			</div>
 		</SlideUpInView>
