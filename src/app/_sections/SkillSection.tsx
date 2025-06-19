@@ -1,11 +1,7 @@
-import Image, { ImageProps } from 'next/image';
-import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import SlideUpInView from '../_components/SlideUpInView';
-interface SkillItem extends ImageProps {
-	name: string;
-	info: string;
-}
-const SKILLDUMMY: SkillItem[] = [
+import SkillCard, { Skill } from '../_components/SkillItem';
+
+const SKILLDATA: Skill[] = [
 	{
 		src: '/images/figma.png',
 		alt: 'Figma',
@@ -92,28 +88,8 @@ const SkillSection = () => {
 				</div>
 
 				<div className='grid lg:grid-cols-7 md:grid-cols-4 grid-cols-3 lg:grid-rows-2 justify-center items-center gap-2 p-4 '>
-					{SKILLDUMMY.map((item, index) => (
-						<div
-							key={index}
-							className='flex flex-col justify-center items-center gap-3 p-1.5 hover:scale-110'
-						>
-							<div className='relative w-12 h-12 rounded-md '>
-								<Image
-									src={item.src}
-									alt={item.alt}
-									fill
-									className='object-contain rounded-md shadow-md'
-								/>
-							</div>
-
-							<div className='font-medium text-2xl leading-9'>{item.name}</div>
-							<button className='h-8 flex justify-center items-center gap-1'>
-								<div className='font-normal text-[1rem] leading-7 text-blue'>
-									정보
-								</div>
-								<ChevronRightIcon className='w-4 h-4 text-blue' />
-							</button>
-						</div>
+					{SKILLDATA.map((item, index) => (
+						<SkillCard key={index} item={item} />
 					))}
 				</div>
 			</div>
