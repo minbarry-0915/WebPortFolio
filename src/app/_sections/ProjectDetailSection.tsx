@@ -14,12 +14,11 @@ interface ProjectDetailItem extends ProjectItem {
 
 const projectDetails: ProjectDetailItem[] = [
 	{
-		title: '드릴로',
+		title: 'Drillo',
 		webMobile: 'mobile',
-		startDate: '2024.03',
-		endDate: '2024.06',
-		tagline: '작은 생명, 큰 책임을 자동으로.',
-		description: '건설 현장의 안전과 생명을 관리하는 플랫폼입니다.',
+		startDate: '2024.12',
+		tagline: '현장 위에, 기술을 더하다.',
+		description: '공사관리 플랫폼',
 		detail: [
 			'실시간 위험요소 모니터링 시스템 구현',
 			'React, TypeScript, Firebase 기반 웹/모바일 클라이언트 개발',
@@ -27,12 +26,12 @@ const projectDetails: ProjectDetailItem[] = [
 		],
 	},
 	{
-		title: '펫케어 메이트',
+		title: 'SmartCart',
 		webMobile: 'mobile',
-		startDate: '2023.12',
-		endDate: '2024.02',
-		tagline: '반려동물의 일상, 손안에서 관리하다.',
-		description: '반려동물의 건강, 식사, 산책 기록을 관리하는 모바일 앱',
+		startDate: '2024.03',
+		endDate: '2024.11',
+		tagline: '마트 쇼핑에 날개를 달다.',
+		description: '오프라인 장바구니 어플리케이션',
 		detail: [
 			'React Native와 Redux를 사용한 전역 상태 관리',
 			'Google Fit API 연동을 통한 운동량 추적 기능',
@@ -40,12 +39,12 @@ const projectDetails: ProjectDetailItem[] = [
 		],
 	},
 	{
-		title: '에코로그',
-		webMobile: 'web',
-		startDate: '2024.01',
-		endDate: '2024.04',
-		tagline: '지속가능한 습관, 로그로 기록하다.',
-		description: '개인의 환경보호 활동을 기록하고 공유할 수 있는 웹 플랫폼',
+		title: 'ReDream',
+		webMobile: 'mobile',
+		startDate: '2024.07',
+		endDate: '2024.08',
+		tagline: '상상에 이야기를 입히다.',
+		description: 'AI 동화 생성 어플리케이션',
 		detail: [
 			'Next.js 기반 SSR 지원으로 빠른 페이지 로딩 구현',
 			'활동별 탄소 절감량 자동 계산 로직 개발',
@@ -53,12 +52,12 @@ const projectDetails: ProjectDetailItem[] = [
 		],
 	},
 	{
-		title: '스터디메이트',
-		webMobile: 'web',
-		startDate: '2023.10',
-		endDate: '2023.12',
-		tagline: '혼자보다 함께, 공부의 지속 가능성을 높이다.',
-		description: '스터디 그룹 매칭 및 실시간 공동학습 플랫폼',
+		title: 'FrogGuard',
+		webMobile: 'mobile',
+		startDate: '2024.03',
+		endDate: '2024.05',
+		tagline: '작은 생명, 큰 책임을 자동으로.',
+		description: '양서류 자동 관리 어플리케이션',
 		detail: [
 			'Socket.io를 활용한 실시간 협업 기능 구현',
 			'TailwindCSS 기반 반응형 디자인',
@@ -66,12 +65,12 @@ const projectDetails: ProjectDetailItem[] = [
 		],
 	},
 	{
-		title: '굿모닝 헬스',
-		webMobile: 'mobile',
-		startDate: '2023.07',
-		endDate: '2023.09',
-		tagline: '매일 아침, 건강을 깨우다.',
-		description: '개인의 건강 루틴을 만들고 관리할 수 있는 헬스케어 앱',
+		title: 'English Learning Program',
+		webMobile: 'web',
+		startDate: '2021.03',
+		endDate: '2021.06',
+		tagline: '놀면서 외우는, 단어의 마법.',
+		description: '초등학생 대상 영단어 학습 시스템',
 		detail: [
 			'Push Notification으로 아침 루틴 알림 제공',
 			'TypeScript 기반 컴포넌트 구조화',
@@ -87,7 +86,7 @@ interface WebMobileIconProps {
 
 const WebMobileIcon = ({
 	webMobile,
-	color = 'text-black',
+	color = 'text-foreground',
 }: WebMobileIconProps): ReactNode => {
 	switch (webMobile) {
 		case 'webMobile':
