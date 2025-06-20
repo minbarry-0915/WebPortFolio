@@ -10,12 +10,10 @@ export default function Home() {
 		<main className='w-full min-w-96 max-w-screen-lg min-h-svh mx-auto px-5 md:px-8 lg:px-10 flex flex-col items-center relative '>
 			<MainSection />
 			<SkillSection />
-			<div className='flex flex-col md:gap-60 gap-24'>
-				<WorkExperienceSection />
-				<ProjectDetailSection />
-				<EducationSection />
-				<AwardSection />
-			</div>
+			<WorkExperienceSection />
+			<ProjectDetailSection />
+			<EducationSection />
+			<AwardSection />
 		</main>
 	);
 }

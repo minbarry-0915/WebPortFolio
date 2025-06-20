@@ -1,11 +1,6 @@
+import ProjectCard from '../_components/ProjectCard';
 import SectionContainer from '../_components/SectionContainer';
 import { ProjectItem } from './WorkExperienceSection';
-import {
-	ComputerDesktopIcon,
-	DevicePhoneMobileIcon,
-	PlusIcon,
-} from '@heroicons/react/24/outline';
-import { ReactNode } from 'react';
 
 interface ProjectDetailItem extends ProjectItem {
 	tagline: string;
@@ -79,68 +74,15 @@ const projectDetails: ProjectDetailItem[] = [
 	},
 ];
 
-interface WebMobileIconProps {
-	webMobile: ProjectItem['webMobile'];
-	color?: string;
-}
-
-const WebMobileIcon = ({
-	webMobile,
-	color = 'text-foreground',
-}: WebMobileIconProps): ReactNode => {
-	switch (webMobile) {
-		case 'webMobile':
-			return <></>;
-		case 'web':
-			return <ComputerDesktopIcon className={`w-6 h-6 ${color} stroke-1`} />;
-		case 'mobile':
-			return <DevicePhoneMobileIcon className={`w-6 h-6 ${color} stroke-1`} />;
-	}
-};
-
 const ProjectDetailSection = () => {
 	return (
 		<SectionContainer
 			title='프로젝트 상세'
 			subtitle='기술로 그려낸 작은 혁신들.'
 		>
-			<div className='grid md:grid-cols-2 grid-cols-1 gap-7'>
+			<div className='grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-6'>
 				{projectDetails.map((item, index) => (
-					<div
-						key={index}
-						className='flex flex-col bg-gray-400 shadow-lg rounded-2xl p-[1.125rem] text-white'
-					>
-						<div className='flex flex-col gap-2'>
-							<div className='flex justify-between items-center'>
-								<p className='font-bold text-[1.125rem] leading-[1.875rem]'>
-									{item.title}
-								</p>
-								<WebMobileIcon
-									webMobile={item.webMobile}
-									color={'text-white'}
-								/>
-							</div>
-							<div className='font-bold text-2xl leading-9 mr-6'>
-								{(() => {
-									const taglines = item.tagline.split(', ');
-									return (
-										<>
-											{taglines.map((tagItem, index) => (
-												<p key={index}>{tagItem}</p>
-											))}
-										</>
-									);
-								})()}
-							</div>
-							<p className='text-base leading-7 mr-6'>{item.description}</p>
-							<p className='text-base leading-7'>
-								{item.startDate} - {item.endDate ?? '진행중'}
-							</p>
-						</div>
-						<button className='w-9 h-9 flex justify-center items-center rounded-full bg-black/60 self-end'>
-							<PlusIcon className='w-6 h-6 text-white' />
-						</button>
-					</div>
+					<ProjectCard key={index} item={item} />
 				))}
 			</div>
 		</SectionContainer>

@@ -14,11 +14,13 @@ const SectionContainer = ({
 }: SectionContainerProps) => {
 	return (
 		<SlideUpInView>
-			<div className='w-full flex flex-col justify-center '>
-				<p className='font-normal text-2xl leading-9 text-blue mb-[1.125rem]'>
+			<div className='w-full flex flex-col mb-30 md:mb-44'>
+				<p className='font-normal text-base md:text-lg text-blue mb-2 md:mb-6'>
 					{title}
 				</p>
-				<h1 className='font-semibold text-4xl leading-12 mb-9'>{subtitle}</h1>
+				<h1 className='font-semibold text-2xl md:text-3xl mb-6 md:mb-9'>
+					{subtitle}
+				</h1>
 				{children}
 			</div>
 		</SlideUpInView>

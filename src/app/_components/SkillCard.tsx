@@ -12,7 +12,7 @@ interface SkillCardProps {
 const SkillCard = ({ item }: SkillCardProps) => {
 	return (
 		<div className='flex flex-col justify-center items-center gap-3 p-1.5 hover:scale-110 active:scale-110'>
-			<div className='relative w-12 h-12 rounded-md '>
+			<div className='relative w-9 h-9 md:w-12 md:h-12 rounded-md '>
 				<Image
 					src={item.src}
 					alt={item.alt}
@@ -21,9 +21,11 @@ const SkillCard = ({ item }: SkillCardProps) => {
 				/>
 			</div>
 
-			<div className='font-medium text-2xl leading-9'>{item.name}</div>
-			<button className='h-8 flex justify-center items-center gap-1'>
-				<div className='font-normal text-[1rem] leading-7 text-blue'>정보</div>
+			<div className='font-medium text-lg md:text-xl'>{item.name}</div>
+			<button className='h-8 flex justify-center items-center gap-1 pl-2'>
+				<div className='font-normal md:text-base text-[0.875rem] text-blue'>
+					정보
+				</div>
 				<ChevronRightIcon className='w-4 h-4 text-blue' />
 			</button>
 		</div>

@@ -1,9 +1,10 @@
-import CertificateCard from '../_components/CertificateCard';
-import GenericCard, { BaseCardItem } from '../_components/GenericCard';
+import GenericRow, { BaseRowItem } from '../_components/GenericRow';
+import GenericRowWithoutEndDate from '../_components/GenericRowWithoutEndDate';
 import SectionContainer from '../_components/SectionContainer';
 import Seperator from '../_components/Seperator';
 import { BuildingLibraryIcon } from '@heroicons/react/24/outline';
-const EDUCATIONDATA: BaseCardItem[] = [
+
+const EDUCATIONDATA: BaseRowItem[] = [
 	{
 		title: '충북대학교',
 		description: '토목공학 전공, 소프트웨어 복수전공',
@@ -42,22 +43,22 @@ const EducationSection = () => {
 			subtitle={'성장의 기초가 된 배움의 기록들.'}
 		>
 			<Seperator title='교육' />
-			<div className='flex flex-col mt-6 mb-9 gap-9'>
+			<div className='flex flex-col mb-9 gap-9'>
 				{EDUCATIONDATA.map((item, index) => (
-					<GenericCard
+					<GenericRow
 						key={index}
 						item={item}
 						icon={
-							<BuildingLibraryIcon className='w-8 h-8 text-foreground stroke-1' />
+							<BuildingLibraryIcon className='w-6 h-6 md:w-7 md:h-7 text-foreground stroke-1 shrink-0' />
 						}
 					/>
 				))}
 			</div>
 
 			<Seperator title='자격증' />
-			<div className='flex flex-col mt-6 gap-9'>
+			<div className='flex flex-col gap-6'>
 				{CERTIFICATIONDATA.map((item, index) => (
-					<CertificateCard key={index} item={item} />
+					<GenericRowWithoutEndDate key={index} item={item} />
 				))}
 			</div>
 		</SectionContainer>
