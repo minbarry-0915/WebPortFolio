@@ -9,6 +9,7 @@ interface ProjectDetailItem extends ProjectItem {
 
 const projectDetails: ProjectDetailItem[] = [
 	{
+		id: '1',
 		title: 'Drillo',
 		webMobile: 'mobile',
 		startDate: '2024.12',
@@ -21,6 +22,7 @@ const projectDetails: ProjectDetailItem[] = [
 		],
 	},
 	{
+		id: '2',
 		title: 'SmartCart',
 		webMobile: 'mobile',
 		startDate: '2024.03',
@@ -34,6 +36,7 @@ const projectDetails: ProjectDetailItem[] = [
 		],
 	},
 	{
+		id: '3',
 		title: 'ReDream',
 		webMobile: 'mobile',
 		startDate: '2024.07',
@@ -47,6 +50,7 @@ const projectDetails: ProjectDetailItem[] = [
 		],
 	},
 	{
+		id: '4',
 		title: 'FrogGuard',
 		webMobile: 'mobile',
 		startDate: '2024.03',
@@ -60,6 +64,7 @@ const projectDetails: ProjectDetailItem[] = [
 		],
 	},
 	{
+		id: '5',
 		title: 'English Learning Program',
 		webMobile: 'web',
 		startDate: '2021.03',

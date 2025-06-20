@@ -9,6 +9,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 export interface ProjectItem {
+	id: string;
 	title: string;
 	webMobile: 'web' | 'mobile' | 'webMobile';
 	startDate: string;
@@ -19,6 +20,7 @@ export interface ProjectItem {
 
 const projectDummy: ProjectItem[] = [
 	{
+		id: '1',
 		startDate: '2024.03',
 		webMobile: 'mobile',
 		title: 'SmartCart: 오프라인 스마트 쇼핑 시스템',
@@ -32,6 +34,7 @@ const projectDummy: ProjectItem[] = [
 		],
 	},
 	{
+		id: '2',
 		startDate: '2024.01',
 		endDate: '2024.02',
 		webMobile: 'mobile',

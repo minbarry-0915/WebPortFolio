@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 // import { gothicNeo } from './util/font';
 import { Gothic_A1 } from 'next/font/google';
+import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -15,12 +16,17 @@ const inter = Gothic_A1({
 
 export default function RootLayout({
 	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
+	modal,
+}: {
+	children: ReactNode;
+	modal: ReactNode;
+}) {
 	return (
-		<html lang='ko'>
-			<body className={inter.className}>{children}</body>
+		<html>
+			<body className={inter.className}>
+				{children}
+				{modal}
+			</body>
 		</html>
 	);
 }

@@ -31,6 +31,7 @@ interface Certificate {
 	date: string;
 }
 const CERTIFICATIONDATA: Certificate[] = [
+	{ title: 'SQLD', date: '2025.06.27' },
 	{ title: '정보처리기사', date: '2025.06.13' },
 	{ title: 'OPIc', description: 'Intermidiate High', date: '2025.06.13' },
 	{ title: 'TOEIC', description: '810', date: '2024.06.16' },
