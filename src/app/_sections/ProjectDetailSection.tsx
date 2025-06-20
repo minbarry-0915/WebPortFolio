@@ -80,7 +80,7 @@ const ProjectDetailSection = () => {
 			title='프로젝트 상세'
 			subtitle='기술로 그려낸 작은 혁신들.'
 		>
-			<div className='grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-6'>
+			<div className='grid md:grid-cols-2 grid-cols-1 gap-5 md:gap-6'>
 				{projectDetails.map((item, index) => (
 					<ProjectCard key={index} item={item} />
 				))}

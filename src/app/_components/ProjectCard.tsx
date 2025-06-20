@@ -1,3 +1,5 @@
+'use client';
+
 import { ReactNode } from 'react';
 import { ProjectItem } from '../_sections/WorkExperienceSection';
 import {
@@ -5,6 +7,7 @@ import {
 	DevicePhoneMobileIcon,
 	PlusIcon,
 } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
 
 interface ProjectDetailItem extends ProjectItem {
 	tagline: string;
@@ -35,7 +38,13 @@ const WebMobileIcon = ({ webMobile }: WebMobileIconProps): ReactNode => {
 
 const ProjectCard = ({ item }: ProjectCardProps) => {
 	return (
-		<div className='flex flex-col dark:bg-card-dark bg-card-light shadow-sm dark:shadow-none rounded-2xl p-[1.125rem] justify-between text-foreground'>
+		<motion.div
+			whileHover={{ scale: 1.01, boxShadow: '0 0 30px rgba(0,0,0,0.2)' }}
+			whileTap={{ scale: 1.01 }}
+			transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+			initial={{ scale: 1, boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}
+			className='flex flex-col dark:bg-card-dark bg-card-light dark:shadow-none rounded-2xl p-[1.125rem] justify-between text-foreground'
+		>
 			<div className='flex flex-col gap-4'>
 				<div className='flex justify-between items-center'>
 					<p className='font-semibold text-base md:text-lg'>{item.title}</p>
@@ -66,7 +75,7 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
 			<button className='w-9 h-9 flex justify-center items-center rounded-full dark:bg-background/60 self-end'>
 				<PlusIcon className='w-6 h-6' />
 			</button>
-		</div>
+		</motion.div>
 	);
 };
 
