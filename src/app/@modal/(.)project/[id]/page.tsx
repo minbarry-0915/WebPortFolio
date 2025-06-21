@@ -1,6 +1,6 @@
 'use client';
 import { projectsDetailData } from '@/app/(assets)/data/projectsDetail';
-import Seperator from '@/app/_components/Seperator';
+
 import {
 	ComputerDesktopIcon,
 	DevicePhoneMobileIcon,
@@ -24,24 +24,25 @@ const ProjectModalPage = () => {
 		);
 	}
 
-	// interface WebMobileIconProps {
-	// 	type: ProjectInfoData['webMobile'];
-	// }
+	interface WebMobileIconProps {
+		type: ProjectInfoData['webMobile'];
+	}
 
-	// const WebMobileIcon = ({ type }: WebMobileIconProps): ReactNode => {
-	// 	switch (type) {
-	// 		case 'webMobile':
-	// 			return <></>;
-	// 		case 'web':
-	// 			return (
-	// 				<ComputerDesktopIcon className='w-9 h-9 md:w-12 md:h-12 text-foreground stroke-1 shrink-0' />
-	// 			);
-	// 		case 'mobile':
-	// 			return (
-	// 				<DevicePhoneMobileIcon className='w-9 h-9 md:w-12 md:h-12 text-foreground stroke-1 shrink-0' />
-	// 			);
-	// 	}
-	// };
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const WebMobileIcon = ({ type }: WebMobileIconProps): ReactNode => {
+		switch (type) {
+			case 'webMobile':
+				return <></>;
+			case 'web':
+				return (
+					<ComputerDesktopIcon className='w-9 h-9 md:w-12 md:h-12 text-foreground stroke-1 shrink-0' />
+				);
+			case 'mobile':
+				return (
+					<DevicePhoneMobileIcon className='w-9 h-9 md:w-12 md:h-12 text-foreground stroke-1 shrink-0' />
+				);
+		}
+	};
 
 	return (
 		<>
