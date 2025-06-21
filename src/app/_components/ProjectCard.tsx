@@ -51,7 +51,7 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
 			initial={{ scale: 1, boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}
 			className='flex flex-col dark:bg-card-dark bg-card-light dark:shadow-none rounded-2xl p-[1.125rem] justify-between text-foreground cursor-pointer'
 		>
-			<div className='w-full flex flex-col text-start gap-4'>
+			<div className='flex flex-col w-full text-start gap-4'>
 				<div className='flex justify-between items-center'>
 					<p className='font-semibold text-base md:text-lg'>{item.title}</p>
 					<WebMobileIcon webMobile={item.webMobile} />

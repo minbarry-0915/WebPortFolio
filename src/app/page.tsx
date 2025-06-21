@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import AwardSection from './_sections/AwardSection';
 import EducationSection from './_sections/EducationSection';
 import MainSection from './_sections/MainSection';
@@ -15,7 +14,6 @@ export default function Home() {
 			<ProjectDetailSection />
 			<EducationSection />
 			<AwardSection />
-			<Link href='/project/1'>프로젝트 1 모달로 보기</Link>
 		</main>
 	);
 }
