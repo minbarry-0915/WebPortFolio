@@ -1,7 +1,7 @@
 export const PROJECTCARDDATA: ProjectCardItemProps[] = [
 	{
 		id: '1',
-		title: 'Drillo',
+		title: 'Drillou',
 		webMobile: 'mobile',
 		startDate: '2024.12',
 		tagline: '현장 위에, 기술을 더하다.',

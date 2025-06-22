@@ -4,12 +4,11 @@ declare global {
 	interface SkillData extends ImageProps {
 		id: string;
 		name: string;
-		icon?: string;
 		info?: string;
 	}
 
 	interface ProjectInfoData {
-		tagline?: string;
+		description?: string;
 		webMobile: 'web' | 'mobile' | 'webMobile';
 		startDate: string;
 		endDate?: string;

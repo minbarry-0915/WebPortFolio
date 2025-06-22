@@ -25,7 +25,7 @@ const GenericRow = ({ item, icon }: GenericRowProps) => {
 			<div className='md:col-span-3 flex justify-center flex-col gap-1'>
 				<div className='flex flex-row justify-start items-start gap-x-2'>
 					{icon}
-					<div className='flex flex-col gap-2 md:gap-3'>
+					<div className='w-full flex flex-col gap-2 md:gap-3 '>
 						<p className='text-base md:text-xl font-bold'>{item.title}</p>
 						<p className='text-sm md:text-lg text-secondary dark:text-secondary-dark'>
 							{item.description}
@@ -50,7 +50,7 @@ const GenericRow = ({ item, icon }: GenericRowProps) => {
 							</button>
 
 							{isExpanded && (
-								<ul className='flex flex-col list-disc list-inside rounded-xl bg-foreground/5 -indent-3 py-5 pl-9 md:pl-11 pr-4 md:pr-10 gap-1 text-secondary dark:text-secondary-dark'>
+								<ul className='flex-1 list-disc rounded-xl bg-foreground/5 py-5 pl-9 md:pl-11 pr-6 md:pr-10 space-y-1.5 text-secondary dark:text-secondary-dark'>
 									{item.details &&
 										item.details.map((detail, index) => (
 											<li key={index} className='text-sm md:text-base'>

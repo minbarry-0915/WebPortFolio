@@ -1,13 +1,32 @@
 export const PROJECTDETAILDATA: ProjectData[] = [
 	{
 		id: '1',
-		title: 'AI 기반 챗봇 서비스',
+		title: 'Drillou',
 		info: {
-			tagline:
-				'나의 포트폴리오 사이트 제작 프로젝트 데이터를 분리하여 관리하며 빌드 시점에 렌더링하는 SSG 웹 제작',
-			webMobile: 'web',
-			startDate: '2024.01',
-			endDate: '2024.03',
+			description:
+				'드릴로는 건물 유지·보수 시공 산업의 비효율적인 사무 업무를 디지털화하기 위해 개발된 사무 자동화 플랫폼입니다. 공사, 고객, 재무 관리 등 반복적인 업무를 자동화하여 기술자들이 현장 업무에 집중할 수 있도록 지원합니다.',
+			skills: [
+				{
+					id: '9',
+					src: '/images/reactnative.png',
+					alt: 'ReactNative',
+					name: 'ReactNative',
+				},
+				{
+					id: '10',
+					src: '/images/redux.png',
+					alt: 'redux',
+					name: 'Redux',
+				},
+				{
+					id: '11',
+					src: '/images/firebase.png',
+					alt: 'Firebase',
+					name: 'Firebase',
+				},
+			],
+			webMobile: 'mobile',
+			startDate: '2024.12',
 			member: '3명',
 		},
 		details: [
@@ -33,7 +52,7 @@ export const PROJECTDETAILDATA: ProjectData[] = [
 		id: '2',
 		title: '팀 협업 프로젝트 관리 툴',
 		info: {
-			tagline: '프로젝트 진행 상황을 시각화',
+			description: '프로젝트 진행 상황을 시각화',
 			webMobile: 'webMobile',
 			startDate: '2023-09',
 			endDate: '2023-12',
@@ -57,7 +76,7 @@ export const PROJECTDETAILDATA: ProjectData[] = [
 		id: '3',
 		title: '개인용 가계부 앱',
 		info: {
-			tagline: '지출 패턴을 자동 분석하는 앱',
+			description: '지출 패턴을 자동 분석하는 앱',
 			webMobile: 'mobile',
 			startDate: '2024-02',
 			member: '1명',
@@ -78,7 +97,7 @@ export const PROJECTDETAILDATA: ProjectData[] = [
 		id: '4',
 		title: '개발 블로그 CMS 플랫폼',
 		info: {
-			tagline: 'Notion을 활용한 간편한 콘텐츠 관리',
+			description: 'Notion을 활용한 간편한 콘텐츠 관리',
 			webMobile: 'web',
 			startDate: '2023-06',
 			endDate: '2023-07',

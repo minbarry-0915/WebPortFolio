@@ -30,8 +30,7 @@ const ProjectModalPage = () => {
 	return (
 		<>
 			<h2 className='text-xl font-bold mb-2'>{data.title}</h2>
-			<p>{data.description}</p>
-			<p>{data.description}</p>
+			<p>준비중</p>
 		</>
 	);
 };
