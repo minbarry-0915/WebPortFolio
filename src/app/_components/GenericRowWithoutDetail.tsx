@@ -8,7 +8,7 @@ const GenericRowWithoutDetail = ({ item }: GenericRowWithoutDetailProps) => {
 		<div className='grid md:grid-cols-4 md:items-start'>
 			<div className='flex items-center'>
 				<p className='text-sm md:text-lg items-center mb-2 text-secondary dark:text-secondary-dark'>
-					{item.issueDate}
+					{item.issuedate}
 				</p>
 			</div>
 

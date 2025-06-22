@@ -10,7 +10,7 @@ const SkillCard = ({ item }: SkillCardProps) => {
 			<div className='relative w-9 h-9 md:w-12 md:h-12 rounded-md '>
 				<Image
 					src={item.src}
-					alt={item.alt}
+					alt={item.name}
 					fill
 					className='object-contain rounded-md shadow-md'
 				/>

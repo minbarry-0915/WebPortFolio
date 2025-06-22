@@ -19,7 +19,7 @@ const GenericRow = ({ item, icon }: GenericRowProps) => {
 	return (
 		<div className='grid md:grid-cols-4 md:items-start'>
 			<p className='text-sm md:text-lg items-center mb-2 text-secondary dark:text-secondary-dark'>
-				{item.startDate} - {item.endDate ?? '진행 중'}
+				{item.startdate} - {item.enddate ?? '진행 중'}
 			</p>
 
 			<div className='md:col-span-3 flex justify-center flex-col gap-1'>

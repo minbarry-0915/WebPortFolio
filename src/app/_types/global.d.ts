@@ -38,10 +38,10 @@ declare global {
 	interface ProjectCardItemProps {
 		id: string;
 		title: string;
-		webMobile: 'web' | 'mobile' | 'webMobile';
+		webmobile: 'web' | 'mobile' | 'webMobile';
 		tagline: string;
-		startDate: string;
-		endDate?: string;
+		startdate: string;
+		enddate?: string;
 		description: string;
 	}
 	// 경력사항 섹션 -> 프로젝트
@@ -49,8 +49,8 @@ declare global {
 		id: string;
 		title: string;
 		webMobile: 'web' | 'mobile' | 'webMobile';
-		startDate: string;
-		endDate?: string;
+		startdate: string;
+		enddate?: string;
 		description?: string;
 		details: string[];
 	}
@@ -58,8 +58,8 @@ declare global {
 	interface EducationRowProps {
 		id: string;
 		title: string;
-		startDate: string;
-		endDate?: string;
+		startdate: string;
+		enddate?: string;
 		description?: string;
 		details?: string[];
 	}
@@ -67,14 +67,14 @@ declare global {
 	interface CertificationRowProps {
 		id: string;
 		title: string;
-		issueDate: string;
+		issuedate: string;
 		description?: string;
 	}
 
 	interface AwardRowProps {
 		id: string;
 		title: string;
-		issueDate: string;
+		issuedate: string;
 		description?: string;
 	}
 }

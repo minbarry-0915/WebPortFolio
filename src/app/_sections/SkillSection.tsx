@@ -1,8 +1,19 @@
-import { SKILLDATA } from '../(assets)/data/skill';
 import SkillCard from '../_components/SkillCard';
 import SlideUpInView from '../_components/SlideUpInView';
+import { supabase } from '../util/supabase/client';
 
-const SkillSection = () => {
+const SkillSection = async () => {
+	const { data: skills, error } = await supabase
+		.from('skill')
+		.select('*')
+		.order('competence', { ascending: true })
+		.order('name', { ascending: false });
+
+	if (error) {
+		console.error('Error fetching skill data:', error);
+		return <div>기술 데이터를 불러오는 중 오류가 발생했습니다.</div>;
+	}
+
 	return (
 		<SlideUpInView>
 			<div className='w-full flex flex-col justify-center items-center text-center mb-30 md:mb-60'>
@@ -14,7 +25,7 @@ const SkillSection = () => {
 				</div>
 
 				<div className='grid grid-cols-3 lg:grid-cols-7 md:grid-cols-4 lg:grid-rows-2 justify-center items-center gap-2 p-2 md:p-2'>
-					{SKILLDATA.map((item, index) => (
+					{skills.map((item, index) => (
 						<SkillCard key={index} item={item} />
 					))}
 				</div>

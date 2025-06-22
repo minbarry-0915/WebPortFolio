@@ -27,7 +27,7 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
 			<div className='flex flex-col w-full text-start gap-4'>
 				<div className='flex justify-between items-center'>
 					<p className='font-semibold text-base md:text-lg'>{item.title}</p>
-					<WebMobileIcon webMobile={item.webMobile} />
+					<WebMobileIcon webMobile={item.webmobile} />
 				</div>
 				<div className='flex flex-col font-bold text-xl md:text-2xl mr-6'>
 					{(() => {
@@ -47,7 +47,7 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
 						{item.description}
 					</p>
 					<p className='text-sm md:text-base text-secondary dark:text-secondary-dark'>
-						{item.startDate} - {item.endDate ?? '진행중'}
+						{item.startdate} - {item.enddate ?? '진행중'}
 					</p>
 				</div>
 			</div>
