@@ -4,7 +4,7 @@ import { supabase } from '../util/supabase/client';
 
 const AwardSection = async () => {
 	const { data: awards, error } = await supabase
-		.from<'award', AwardRowProps>('award')
+		.from('award')
 		.select('*')
 		.order('issuedate', { ascending: false });
 

@@ -23,7 +23,7 @@ const WorkExperienceSection = async () => {
 					<GenericRow
 						key={index}
 						item={item}
-						icon={<WebMobileIcon webMobile={item.webMobile} />}
+						icon={<WebMobileIcon webMobile={item.webmobile} />}
 					/>
 				))}
 			</div>
