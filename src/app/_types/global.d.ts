@@ -1,8 +1,11 @@
+import { ImageProps } from 'next/image';
+
 declare global {
-	interface SkillData {
+	interface SkillData extends ImageProps {
 		id: string;
 		name: string;
 		icon?: string;
+		info?: string;
 	}
 
 	interface ProjectInfoData {
@@ -11,10 +14,10 @@ declare global {
 		startDate: string;
 		endDate?: string;
 		member?: string;
-		skills: SkillData[];
+		skills?: SkillData[];
 	}
 
-	interface ProjectDescriptionData {
+	interface ProjectDetailData {
 		title: string;
 		items?: string[];
 	}
@@ -24,31 +27,33 @@ declare global {
 		href: string;
 	}
 
+	// 프로젝트 상세 페이지
 	interface ProjectData {
 		id: string;
 		title: string;
 		info: ProjectInfoData;
-		description: ProjectDescriptionData[];
+		details: ProjectDetailData[];
 		links?: ProjectLinkData[];
 	}
-
+	// 프로젝트 상세 섹션
 	interface ProjectCardItemProps {
 		id: string;
 		title: string;
-		info: Pick<
-			ProjectInfoData,
-			'tagline' | 'webMobile' | 'startDate' | 'endDate'
-		>;
+		webMobile: 'web' | 'mobile' | 'webMobile';
+		tagline: string;
+		startDate: string;
+		endDate?: string;
+		description: string;
 	}
-
+	// 경력사항 섹션 -> 프로젝트
 	interface ProjectRowProps {
 		id: string;
 		title: string;
-		info: Pick<
-			ProjectInfoData,
-			'tagline' | 'webMobile' | 'startDate' | 'endDate'
-		>;
-		description: string[];
+		webMobile: 'web' | 'mobile' | 'webMobile';
+		startDate: string;
+		endDate?: string;
+		description?: string;
+		details: string[];
 	}
 
 	interface EducationRowProps {
@@ -57,6 +62,7 @@ declare global {
 		startDate: string;
 		endDate?: string;
 		description?: string;
+		details?: string[];
 	}
 
 	interface CertificationRowProps {

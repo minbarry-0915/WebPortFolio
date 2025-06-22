@@ -1,13 +1,8 @@
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
-import Image, { ImageProps } from 'next/image';
-
-export interface Skill extends ImageProps {
-	name: string;
-	info: string;
-}
+import Image from 'next/image';
 
 interface SkillCardProps {
-	item: Skill;
+	item: SkillData;
 }
 const SkillCard = ({ item }: SkillCardProps) => {
 	return (

@@ -2,6 +2,7 @@
 
 import { PropsWithChildren } from 'react';
 import { motion } from 'framer-motion';
+
 interface SlideUpInViewProps extends PropsWithChildren {
 	once?: boolean;
 }

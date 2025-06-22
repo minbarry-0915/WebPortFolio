@@ -3,24 +3,13 @@ import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { ReactNode, useState } from 'react';
 
-export interface BaseRowItem {
-	startDate: string;
-	endDate?: string;
-	title: string;
-	description?: string;
-	detail?: string[];
-}
-
-interface GenericRowProps<T extends BaseRowItem> {
-	item: T;
+interface GenericRowProps {
+	item: ProjectRowProps | EducationRowProps;
 	icon?: ReactNode;
 }
 
 // 경력사항 및 교육 카드용
-const GenericRow = <T extends BaseRowItem>({
-	item,
-	icon,
-}: GenericRowProps<T>) => {
+const GenericRow = ({ item, icon }: GenericRowProps) => {
 	const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
 	const toggleExpandButton = () => {
@@ -29,7 +18,7 @@ const GenericRow = <T extends BaseRowItem>({
 
 	return (
 		<div className='grid md:grid-cols-4 md:items-start'>
-			<p className='text-sm md:text-lg items-center mb-2'>
+			<p className='text-sm md:text-lg items-center mb-2 text-secondary dark:text-secondary-dark'>
 				{item.startDate} - {item.endDate ?? '진행 중'}
 			</p>
 
@@ -62,10 +51,10 @@ const GenericRow = <T extends BaseRowItem>({
 
 							{isExpanded && (
 								<ul className='flex flex-col list-disc list-inside rounded-xl bg-foreground/5 -indent-3 py-5 pl-9 md:pl-11 pr-4 md:pr-10 gap-1 text-secondary dark:text-secondary-dark'>
-									{item.detail &&
-										item.detail.map((ditem, index) => (
+									{item.details &&
+										item.details.map((detail, index) => (
 											<li key={index} className='text-sm md:text-base'>
-												{ditem}
+												{detail}
 											</li>
 										))}
 								</ul>

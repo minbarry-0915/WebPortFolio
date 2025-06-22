@@ -1,20 +1,15 @@
 'use client';
-import { projectsDetailData } from '@/app/(assets)/data/projectsDetail';
 
-import {
-	ComputerDesktopIcon,
-	DevicePhoneMobileIcon,
-	FolderIcon,
-} from '@heroicons/react/24/outline';
+import { PROJECTDETAILDATA } from '@/app/(assets)/data/projectsDetail';
+import { FolderIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import React, { ReactNode } from 'react';
 
 const ProjectModalPage = () => {
 	const { id } = useParams() as { id: string };
 	console.log(id);
 
-	const data = projectsDetailData.find((project) => project.id === id);
+	const data = PROJECTDETAILDATA.find((project) => project.id === id);
 
 	if (!data) {
 		return (
@@ -23,26 +18,6 @@ const ProjectModalPage = () => {
 			</>
 		);
 	}
-
-	interface WebMobileIconProps {
-		type: ProjectInfoData['webMobile'];
-	}
-
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const WebMobileIcon = ({ type }: WebMobileIconProps): ReactNode => {
-		switch (type) {
-			case 'webMobile':
-				return <></>;
-			case 'web':
-				return (
-					<ComputerDesktopIcon className='w-9 h-9 md:w-12 md:h-12 text-foreground stroke-1 shrink-0' />
-				);
-			case 'mobile':
-				return (
-					<DevicePhoneMobileIcon className='w-9 h-9 md:w-12 md:h-12 text-foreground stroke-1 shrink-0' />
-				);
-		}
-	};
 
 	return (
 		<>
@@ -66,11 +41,13 @@ const ProjectModalPage = () => {
 					<div className='text-secondary dark:text-secondary-dark'>
 						기술스택
 					</div>
-					<div className='flex flex-wrap gap-2'>
-						{data.info.skills.map((skill) => (
-							<div key={skill.id}> {skill.name}</div>
-						))}
-					</div>
+					{data.info.skills && (
+						<div className='flex flex-wrap gap-2'>
+							{data.info.skills.map((skill) => (
+								<div key={skill.id}> {skill.name}</div>
+							))}
+						</div>
+					)}
 				</div>
 
 				<div className='flex flex-wrap gap-6'>
@@ -111,12 +88,12 @@ const ProjectModalPage = () => {
 			<div className='flex flex-col gap-6'>
 				<div className='font-semibold text-lg'>상세 내용</div>
 				<ol>
-					{data.description.map((section, index) => (
+					{data.details.map((detail, index) => (
 						<li key={index} className='mb-6 space-y-2'>
-							<div>{`${index + 1}. ${section.title}`}</div>
-							{section.items && (
+							<div>{`${index + 1}. ${detail.title}`}</div>
+							{detail.items && (
 								<ul className='list-disc pl-5 space-y-1'>
-									{section.items.map((item, itemIndex) => (
+									{detail.items.map((item, itemIndex) => (
 										<li
 											key={itemIndex}
 											className='text-secondary dark:text-secondary-dark'

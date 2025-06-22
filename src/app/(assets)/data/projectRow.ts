@@ -1,0 +1,30 @@
+export const PROJECTROWDATA: ProjectRowProps[] = [
+	{
+		id: '1',
+		startDate: '2024.03',
+		webMobile: 'mobile',
+		title: 'SmartCart: 오프라인 스마트 쇼핑 시스템',
+		description:
+			'비콘을 활용한 실시간 위치 안내 및 구매 이력 기반 상품 추천 서비스',
+		details: [
+			'React Native와 Node.js 기반의 모바일 앱 및 서버 개발',
+			'비콘을 활용한 상품 근접 알림 및 실시간 거리 계산 기능 구현',
+			'사용자 구매 이력을 기반으로 XGBoost 모델을 이용한 상품 추천',
+			'AWS EC2, Docker를 통한 서버 배포 및 테스트 환경 구축',
+		],
+	},
+	{
+		id: '2',
+		startDate: '2024.01',
+		endDate: '2024.02',
+		webMobile: 'mobile',
+		title: 'ReDream: AI 동화 생성 앱',
+		description: 'TTS 및 생성형 AI를 활용한 맞춤형 동화 생성 서비스',
+		details: [
+			'React Native 기반 앱 개발 및 AWS Polly 연동 TTS 기능 구현',
+			'OpenAI API를 활용한 동화 생성 기능 개발',
+			'Redux 및 Context API로 사용자 상태 관리',
+			'JWT 기반 인증 및 AWS S3 연동을 통한 이미지/오디오 저장',
+		],
+	},
+];

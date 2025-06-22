@@ -1,4 +1,4 @@
-export const projectsDetailData: ProjectData[] = [
+export const PROJECTDETAILDATA: ProjectData[] = [
 	{
 		id: '1',
 		title: 'AI 기반 챗봇 서비스',
@@ -9,21 +9,8 @@ export const projectsDetailData: ProjectData[] = [
 			startDate: '2024.01',
 			endDate: '2024.03',
 			member: '3명',
-			skills: [
-				{ id: 's1', name: 'React' },
-				{ id: 's2', name: 'TypeScript' },
-				{ id: 's3', name: 'OpenAI API' },
-				{ id: 's4', name: 'Tailwind CSS' },
-				{ id: '5', name: 'Tailwind CSS' },
-				{ id: '6', name: 'Tailwind CSS' },
-				{ id: '7', name: 'Tailwind CSS' },
-				{ id: '8', name: 'Tailwind CSS' },
-				{ id: '9', name: 'Tailwind CSS' },
-				{ id: '0', name: 'Tailwind CSS' },
-				{ id: '00', name: 'Tailwind CSS' },
-			],
 		},
-		description: [
+		details: [
 			{
 				title: 'Tailwind css 사용',
 				items: [
@@ -51,14 +38,8 @@ export const projectsDetailData: ProjectData[] = [
 			startDate: '2023-09',
 			endDate: '2023-12',
 			member: '5명',
-			skills: [
-				{ id: 's5', name: 'Next.js' },
-				{ id: 's6', name: 'Prisma' },
-				{ id: 's7', name: 'PostgreSQL' },
-				{ id: 's8', name: 'Shadcn/ui' },
-			],
 		},
-		description: [
+		details: [
 			{
 				title: '기능 요약',
 				items: ['Kanban 보드', 'Gantt 차트', '캘린더 연동'],
@@ -80,14 +61,8 @@ export const projectsDetailData: ProjectData[] = [
 			webMobile: 'mobile',
 			startDate: '2024-02',
 			member: '1명',
-			skills: [
-				{ id: 's9', name: 'React Native' },
-				{ id: 's10', name: 'Expo' },
-				{ id: 's11', name: 'Recoil' },
-				{ id: 's12', name: 'Firebase' },
-			],
 		},
-		description: [
+		details: [
 			{
 				title: '기능 구성',
 				items: ['카테고리별 지출 요약', '지출 시각화 차트', '알림 기능'],
@@ -107,15 +82,8 @@ export const projectsDetailData: ProjectData[] = [
 			webMobile: 'web',
 			startDate: '2023-06',
 			endDate: '2023-07',
-			member: undefined,
-			skills: [
-				{ id: 's13', name: 'Next.js' },
-				{ id: 's14', name: 'Notion API' },
-				{ id: 's15', name: 'Tailwind' },
-				{ id: 's16', name: 'Vercel' },
-			],
 		},
-		description: [
+		details: [
 			{
 				title: '핵심 기능',
 				items: ['다크모드 지원', '포스트 태그 및 검색 기능', 'Notion 연동'],
@@ -134,14 +102,8 @@ export const projectsDetailData: ProjectData[] = [
 			webMobile: 'webMobile',
 			startDate: '2024-04',
 			member: '2명',
-			skills: [
-				{ id: 's17', name: 'NextAuth' },
-				{ id: 's18', name: 'Kakao API' },
-				{ id: 's19', name: 'Google OAuth' },
-				{ id: 's20', name: 'Supabase' },
-			],
 		},
-		description: [
+		details: [
 			{
 				title: '지원 기능',
 				items: ['카카오/구글 로그인', 'JWT 토큰 기반 인증', '자동 회원가입'],

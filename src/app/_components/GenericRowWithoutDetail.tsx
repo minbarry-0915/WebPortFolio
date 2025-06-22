@@ -1,23 +1,15 @@
-export interface GenericRowWithoutEndDateItem {
-	title: string;
-	description?: string;
-	date: string;
+interface GenericRowWithoutDetailProps {
+	item: CertificationRowProps | AwardRowProps;
 }
 
-interface GenericRowWithoutEndDateProps<
-	T extends GenericRowWithoutEndDateItem
-> {
-	item: T;
-}
-
-// 자격증 수상 내역용
-const GenericRowWithoutEndDate = <T extends GenericRowWithoutEndDateItem>({
-	item,
-}: GenericRowWithoutEndDateProps<T>) => {
+// 자격증, 수상 내역용
+const GenericRowWithoutDetail = ({ item }: GenericRowWithoutDetailProps) => {
 	return (
 		<div className='grid md:grid-cols-4 md:items-start'>
 			<div className='flex items-center'>
-				<p className='text-sm md:text-lg items-center mb-2'>{item.date}</p>
+				<p className='text-sm md:text-lg items-center mb-2 text-secondary dark:text-secondary-dark'>
+					{item.issueDate}
+				</p>
 			</div>
 
 			<div className='md:col-span-3 flex justify-center flex-col gap-1'>
@@ -32,4 +24,4 @@ const GenericRowWithoutEndDate = <T extends GenericRowWithoutEndDateItem>({
 	);
 };
 
-export default GenericRowWithoutEndDate;
+export default GenericRowWithoutDetail;
