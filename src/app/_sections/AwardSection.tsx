@@ -8,8 +8,6 @@ const AwardSection = async () => {
 		.select('*')
 		.order('issuedate', { ascending: false });
 
-	console.log('Fetched awards:', awards);
-
 	if (error) {
 		console.error('Error fetching awards:', error);
 		return <div>수상내역을 불러오는 중 오류가 발생했습니다.</div>;
