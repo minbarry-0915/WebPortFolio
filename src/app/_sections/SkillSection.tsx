@@ -18,7 +18,7 @@ const SkillSection = async () => {
 		<SlideUpInView>
 			<section
 				id='skill'
-				className='w-full h-[100svh] flex flex-col justify-center items-center text-center mb-30 md:mb-60'
+				className='w-full md:h-[100svh] flex flex-col justify-center items-center text-center mb-30 md:mb-60'
 			>
 				<h2 className='font-semibold text-2xl md:text-3xl mb-3 '>
 					기술 스택 및 도구

@@ -80,4 +80,7 @@ body {
 		}
 		scrollbar-width: none;
 	}
+	/* .header-container {
+		@apply flex px-3 py-1 items-center justify-between bg-header-light/50 dark:bg-header-dark/50 rounded-3xl gap-2 shadow-md backdrop-blur-xs dark:backdrop-blur-lg;
+	} */
 }

@@ -39,7 +39,7 @@ const ModalLayout = ({ children }: ModalLayoutProps) => {
 				transition={{ duration: 0.1 }}
 			>
 				<div
-					className='bg-card-light dark:bg-card-dark p-8 rounded-lg relative max-w-2xl w-screen max-h-[90svh] top-0 left-0 overflow-y-scroll scrollbar-hide'
+					className='bg-card-light dark:bg-card-dark p-8 rounded-lg relative max-w-2xl w-screen max-h-[90svh] top-0 left-0 overflow-y-scroll'
 					onClick={(e) => e.stopPropagation()} // 모달 안 클릭 시 닫히지 않게
 				>
 					<motion.button

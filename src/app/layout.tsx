@@ -26,6 +26,7 @@ export default function RootLayout({
 			<body className={inter.className}>
 				{children}
 				{modal}
+				<div id='portal-root' />
 			</body>
 		</html>
 	);
