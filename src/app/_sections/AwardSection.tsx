@@ -14,7 +14,11 @@ const AwardSection = async () => {
 	}
 
 	return (
-		<SectionContainer title={'수상내역'} subtitle={'성과로 증명한 순간들.'}>
+		<SectionContainer
+			id='award'
+			title={'수상내역'}
+			subtitle={'성과로 증명한 순간들.'}
+		>
 			<div className='flex flex-col gap-6'>
 				{awards.map((item, index) => (
 					<GenericRowWithoutDetail key={index} item={item} />

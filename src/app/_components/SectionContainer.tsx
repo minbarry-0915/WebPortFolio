@@ -2,19 +2,21 @@ import { ReactNode } from 'react';
 import SlideUpInView from './SlideUpInView';
 
 interface SectionContainerProps {
+	id: string;
 	title: string;
 	subtitle: string;
 	children?: ReactNode;
 }
 
 const SectionContainer = ({
+	id,
 	title,
 	subtitle,
 	children,
 }: SectionContainerProps) => {
 	return (
 		<SlideUpInView>
-			<div className='w-full flex flex-col mb-30 md:mb-44'>
+			<section id={id} className='w-full flex flex-col mb-30 md:mb-44'>
 				<p className='font-normal text-base md:text-lg text-blue mb-2 md:mb-6'>
 					{title}
 				</p>
@@ -22,7 +24,7 @@ const SectionContainer = ({
 					{subtitle}
 				</h1>
 				{children}
-			</div>
+			</section>
 		</SlideUpInView>
 	);
 };

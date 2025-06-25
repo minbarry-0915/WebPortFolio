@@ -15,6 +15,7 @@ const ProjectDetailSection = async () => {
 
 	return (
 		<SectionContainer
+			id='projectDetail'
 			title='프로젝트 상세'
 			subtitle='기술로 그려낸 작은 혁신들.'
 		>

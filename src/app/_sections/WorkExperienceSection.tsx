@@ -16,7 +16,11 @@ const WorkExperienceSection = async () => {
 	}
 
 	return (
-		<SectionContainer title='경력사항' subtitle='경험과 성장의 기록들.'>
+		<SectionContainer
+			id='experience'
+			title='경력사항'
+			subtitle='경험과 성장의 기록들.'
+		>
 			<Seperator title='프로젝트' />
 			<div className='flex flex-col gap-9'>
 				{projects.map((item, index) => (

@@ -19,6 +19,9 @@
 	--color-secondary-dark: #ebebf599;
 	--color-card-light: #ffffff;
 	--color-card-dark: #1c1c1e;
+	--color-header-light: #bababa;
+	--color-header-dark: #17171c;
+	--color-header-item-dark: #2c2c35;
 }
 
 /* 
@@ -69,6 +72,7 @@ body {
 	}
 }
 
+/* 모달 스크롤바 */
 @layer utilities {
 	.scrollbar-hide {
 		&::-webkit-scrollbar {

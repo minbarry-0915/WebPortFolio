@@ -23,6 +23,7 @@ const EducationSection = async () => {
 
 	return (
 		<SectionContainer
+			id='education'
 			title={'교육 및 자격증'}
 			subtitle={'성장의 기초가 된 배움의 기록들.'}
 		>
