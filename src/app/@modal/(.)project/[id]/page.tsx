@@ -10,7 +10,7 @@ interface PageProps {
 }
 
 const ProjectModalPage = async ({ params }: PageProps) => {
-	const { id } = await params;
+	const { id } = params;
 
 	const { data, error } = await supabase
 		.from('project_data_view')
