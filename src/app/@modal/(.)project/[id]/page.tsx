@@ -10,7 +10,7 @@ interface PageProps {
 	params: { id: string };
 }
 
-// 📌 [1] SSG 대상 경로 정의
+// SSG 대상 경로 정의
 export async function generateStaticParams() {
 	const { data, error } = await supabase.from('project').select('id');
 
@@ -24,10 +24,10 @@ export async function generateStaticParams() {
 	}));
 }
 
-// 📌 [2] ISR 설정 (선택사항)
+// ISR 설정
 export const revalidate = 60; // 60초마다 경로 재생성
 
-// 📌 [3] SSG 렌더 페이지
+// SSG 렌더 페이지
 export default async function ProjectModalPage({ params }: PageProps) {
 	const { id } = params;
 
