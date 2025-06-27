@@ -5,26 +5,26 @@ import Image from 'next/image';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
-export async function generateStaticParams() {
-	const { data, error } = await supabase.from('project').select('id');
+type Params = Promise<{ id: string }>;
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
-	if (error) {
-		console.error('Failed to fetch project IDs:', error);
-		return [];
-	}
-
-	return data?.map((project) => ({ id: project.id.toString() })) || [];
+export async function generateMetadata(props: {
+	params: Params;
+	searchParams: SearchParams;
+}) {
+	const params = await props.params;
+	const searchParams = await props.searchParams;
+	const id = params.id;
+	const query = searchParams.query;
+	console.log(id, query);
 }
 
-export const revalidate = 60;
-
 // SSG 렌더 페이지
-export default async function ProjectModalPage({
-	params,
-}: {
-	params: Promise<{ id: string }>;
+export default async function ProjectModalPage(props: {
+	params: Params;
+	searchParams: SearchParams;
 }) {
-	const { id } = await params;
+	const { id } = await props.params;
 
 	const { data, error } = await supabase
 		.from('project_data_view')

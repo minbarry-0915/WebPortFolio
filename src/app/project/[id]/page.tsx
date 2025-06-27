@@ -5,26 +5,26 @@ import Image from 'next/image';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
-interface PageProps {
-	params: { id: string };
+type Params = Promise<{ id: string }>;
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+
+export async function generateMetadata(props: {
+	params: Params;
+	searchParams: SearchParams;
+}) {
+	const params = await props.params;
+	const searchParams = await props.searchParams;
+	const id = params.id;
+	const query = searchParams.query;
+	console.log(id, query);
 }
-
-export async function generateStaticParams() {
-	const { data, error } = await supabase.from('project').select('id');
-
-	if (error) {
-		console.error('Failed to fetch project IDs:', error);
-		return [];
-	}
-
-	return data?.map((project) => ({ id: project.id.toString() })) || [];
-}
-
-export const revalidate = 60;
 
 // SSG 렌더 페이지
-export default async function ProjectModalPage({ params }: PageProps) {
-	const { id } = await params;
+export default async function ProjectModalPage(props: {
+	params: Params;
+	searchParams: SearchParams;
+}) {
+	const { id } = await props.params;
 
 	const { data, error } = await supabase
 		.from('project_data_view')
@@ -40,7 +40,7 @@ export default async function ProjectModalPage({ params }: PageProps) {
 	const project = data as ProjectData;
 
 	return (
-		<div>
+		<>
 			<h2 className='flex flex-col gap-7 mb-11'>
 				<FolderIcon className='w-9 h-9 md:w-12 md:h-12 text-foreground stroke-1 shrink-0 ' />
 				<div className='font-bold text-3xl pr-4 '>{project.title}</div>
@@ -198,6 +198,6 @@ export default async function ProjectModalPage({ params }: PageProps) {
 					</ol>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }
