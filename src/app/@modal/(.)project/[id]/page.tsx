@@ -5,11 +5,6 @@ import Image from 'next/image';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
-// SSG 동적 경로용 타입
-interface PageProps {
-	params: { id: string };
-}
-
 // SSG 대상 경로 정의
 export async function generateStaticParams() {
 	const { data, error } = await supabase.from('project').select('id');
@@ -28,8 +23,12 @@ export async function generateStaticParams() {
 export const revalidate = 60; // 60초마다 경로 재생성
 
 // SSG 렌더 페이지
-export default async function ProjectModalPage({ params }: any) {
-	const { id } = params;
+export default async function ProjectModalPage({
+	params,
+}: {
+	params: Promise<{ id: string }>;
+}) {
+	const { id } = await params;
 
 	const { data, error } = await supabase
 		.from('project_data_view')
