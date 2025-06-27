@@ -5,7 +5,10 @@ import Image from 'next/image';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
-// SSG 대상 경로 정의
+interface PageProps {
+	params: { id: string };
+}
+
 export async function generateStaticParams() {
 	const { data, error } = await supabase.from('project').select('id');
 
@@ -14,20 +17,13 @@ export async function generateStaticParams() {
 		return [];
 	}
 
-	return data?.map((project) => ({
-		id: project.id.toString(),
-	}));
+	return data?.map((project) => ({ id: project.id.toString() })) || [];
 }
 
-// ISR 설정
-export const revalidate = 60; // 60초마다 경로 재생성
+export const revalidate = 60;
 
 // SSG 렌더 페이지
-export default async function ProjectModalPage({
-	params,
-}: {
-	params: Promise<{ id: string }>;
-}) {
+export default async function ProjectModalPage({ params }: PageProps) {
 	const { id } = await params;
 
 	const { data, error } = await supabase

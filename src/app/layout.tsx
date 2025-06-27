@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html>
-			<body>
+			<body className='w-full min-w-96 max-w-screen-lg min-h-svh mx-auto px-5 md:px-8 lg:px-10 flex flex-col items-center relative'>
 				{children}
 				{modal}
 				<div id='portal-root' />
