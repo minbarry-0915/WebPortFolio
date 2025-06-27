@@ -28,7 +28,7 @@ export async function generateStaticParams() {
 export const revalidate = 60; // 60초마다 경로 재생성
 
 // SSG 렌더 페이지
-export default async function ProjectModalPage({ params }: PageProps) {
+export default async function ProjectModalPage({ params }: any) {
 	const { id } = params;
 
 	const { data, error } = await supabase
