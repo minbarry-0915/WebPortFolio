@@ -5,11 +5,30 @@ import Image from 'next/image';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
+// SSG 동적 경로용 타입
 interface PageProps {
 	params: { id: string };
 }
 
-const ProjectModalPage = async ({ params }: PageProps) => {
+// 📌 [1] SSG 대상 경로 정의
+export async function generateStaticParams() {
+	const { data, error } = await supabase.from('project').select('id');
+
+	if (error) {
+		console.error('Failed to fetch project IDs:', error);
+		return [];
+	}
+
+	return data?.map((project) => ({
+		id: project.id.toString(),
+	}));
+}
+
+// 📌 [2] ISR 설정 (선택사항)
+export const revalidate = 60; // 60초마다 경로 재생성
+
+// 📌 [3] SSG 렌더 페이지
+export default async function ProjectModalPage({ params }: PageProps) {
 	const { id } = params;
 
 	const { data, error } = await supabase
@@ -18,7 +37,7 @@ const ProjectModalPage = async ({ params }: PageProps) => {
 		.eq('id', id)
 		.single();
 
-	if (error) {
+	if (error || !data) {
 		console.error('Error fetching project data:', error);
 		return <div>프로젝트 데이터를 불러오는 중 오류가 발생했습니다.</div>;
 	}
@@ -36,6 +55,7 @@ const ProjectModalPage = async ({ params }: PageProps) => {
 				id='project-info'
 				className='flex flex-col gap-6 sm:text-base text-sm'
 			>
+				{/* 설명 */}
 				<div id='description' className='flex flex-col gap-1.5'>
 					<div className='dark:font-extralight text-secondary dark:text-secondary-dark'>
 						프로젝트 설명
@@ -45,6 +65,7 @@ const ProjectModalPage = async ({ params }: PageProps) => {
 					</div>
 				</div>
 
+				{/* 기술스택 */}
 				{project.skills?.length > 0 && (
 					<div id='skills' className='flex flex-col gap-1.5'>
 						<div className='dark:font-extralight text-secondary dark:text-secondary-dark'>
@@ -68,12 +89,13 @@ const ProjectModalPage = async ({ params }: PageProps) => {
 					</div>
 				)}
 
+				{/* 인원, 기간, 링크 */}
 				<div className='flex flex-wrap gap-6'>
 					<div id='member' className='flex flex-col gap-1.5'>
 						<div className='dark:font-extralight text-secondary dark:text-secondary-dark'>
 							참여인원
 						</div>
-						<div className='font-medium dark:font-normal'>{data.member}</div>
+						<div className='font-medium dark:font-normal'>{project.member}</div>
 					</div>
 
 					<div id='period' className='flex flex-col gap-1.5'>
@@ -81,7 +103,7 @@ const ProjectModalPage = async ({ params }: PageProps) => {
 							기간
 						</div>
 						<div className='font-medium dark:font-normal'>
-							{`${data.startDate} - ${data.endDate ?? '진행중'}`}
+							{`${project.startDate} - ${project.endDate ?? '진행중'}`}
 						</div>
 					</div>
 
@@ -90,19 +112,17 @@ const ProjectModalPage = async ({ params }: PageProps) => {
 							관련링크
 						</div>
 						<div className='flex gap-x-2 flex-wrap'>
-							{data.links?.map(
-								(link: { label: string; url: string }, index: number) => (
-									<Link
-										key={index}
-										href={link.url}
-										target='_blank'
-										rel='noopener noreferrer'
-										className='font-medium dark:font-normal text-secondary dark:text-secondary-dark hover:text-foreground underline underline-offset-4'
-									>
-										{link.label}
-									</Link>
-								)
-							)}
+							{project.links?.map((link, i) => (
+								<Link
+									key={i}
+									href={link.url}
+									target='_blank'
+									rel='noopener noreferrer'
+									className='font-medium dark:font-normal text-secondary dark:text-secondary-dark hover:text-foreground underline underline-offset-4'
+								>
+									{link.label}
+								</Link>
+							))}
 						</div>
 					</div>
 				</div>
@@ -114,28 +134,31 @@ const ProjectModalPage = async ({ params }: PageProps) => {
 			/>
 
 			<div id='body' className='flex flex-col gap-12 sm:text-base text-sm'>
+				{/* 개요 */}
 				<div id='overview' className='flex flex-col'>
 					<div className='font-semibold sm:text-xl text-lg mb-3'>🗂️ 개요</div>
 					<div className='flex flex-col gap-1 text-secondary dark:text-secondary-dark dark:font-extralight'>
-						{project.overview.map((text: string, index: number) => (
-							<p key={index}>{text}</p>
+						{project.overview.map((text, i) => (
+							<p key={i}>{text}</p>
 						))}
 					</div>
 				</div>
 
+				{/* 활동 내용 */}
 				<div id='details' className='flex flex-col'>
 					<div className='font-semibold sm:text-xl text-lg mb-3'>
 						🛠️ 활동 내용
 					</div>
 					<ol className='flex flex-col gap-4'>
-						{project.details.map((detail: ProjectDetailData, index: number) => (
+						{project.details.map((detail, index) => (
 							<li key={index} className='space-y-2'>
 								<div className='font-medium'>{`${index + 1}. ${
 									detail.title
 								}`}</div>
-								{detail.images?.map((image, index) => (
+
+								{detail.images?.map((image, idx) => (
 									<div
-										key={index}
+										key={idx}
 										className='relative w-full sm:aspect-[16/9] aspect-[4/3]'
 									>
 										<Zoom>
@@ -148,18 +171,17 @@ const ProjectModalPage = async ({ params }: PageProps) => {
 										</Zoom>
 									</div>
 								))}
+
 								{detail.description && (
 									<ul className='list-disc pl-5 space-y-1 dark:font-extralight'>
-										{detail.description.map(
-											(item: string, itemIndex: number) => (
-												<li
-													key={itemIndex}
-													className='text-secondary dark:text-secondary-dark'
-												>
-													{item}
-												</li>
-											)
-										)}
+										{detail.description.map((item, itemIndex) => (
+											<li
+												key={itemIndex}
+												className='text-secondary dark:text-secondary-dark'
+											>
+												{item}
+											</li>
+										))}
 									</ul>
 								)}
 							</li>
@@ -167,23 +189,20 @@ const ProjectModalPage = async ({ params }: PageProps) => {
 					</ol>
 				</div>
 
+				{/* 문제 해결 */}
 				<div id='troubleshooting' className='flex flex-col'>
 					<div className='font-semibold sm:text-xl text-lg mb-3'>
 						🧠 문제 해결
 					</div>
 					<ol className='flex flex-col gap-4'>
-						{data.troubleshooting?.map(
-							(trouble: ProjectTrouble, index: number) => (
-								<div key={index} className='font-medium'>{`${index + 1}. ${
-									trouble.title
-								}`}</div>
-							)
-						)}
+						{project.troubleshooting?.map((trouble, index) => (
+							<li key={index} className='font-medium'>
+								{`${index + 1}. ${trouble.title}`}
+							</li>
+						))}
 					</ol>
 				</div>
 			</div>
 		</>
 	);
-};
-
-export default ProjectModalPage;
+}
