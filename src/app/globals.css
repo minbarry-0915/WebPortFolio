@@ -24,26 +24,13 @@
 	--color-header-item-dark: #2c2c35;
 }
 
-/* 
-Tailwind CSS 기본 폰트 크기 (글자 크기) 클래스별 크기 예시:
-
-text-xs   -> 0.75rem  (12px)
-text-sm   -> 0.875rem (14px)
-text-base -> 1rem     (16px, 기본 크기)
-text-lg   -> 1.125rem (18px)
-text-xl   -> 1.25rem  (20px)    ← 여기서 'text-xl'을 쓰면 글씨 크기가 약 20px 입니다.
-text-2xl  -> 1.5rem   (24px)
-text-3xl  -> 1.875rem (30px)
-text-4xl  -> 2.25rem  (36px)
-text-5xl  -> 3rem     (48px)
-
-예시:
-<h1 className="text-xl font-semibold">
-  안녕하세요
-</h1>
-*/
-
-/* 최종 적용 */
+@font-face {
+	font-family: 'Pretendard';
+	src: url('/fonts/Pretendard.woff2') format('woff2-variations');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
 
 html {
 	overflow-y: scroll;
@@ -51,8 +38,8 @@ html {
 body {
 	background: var(--background);
 	color: var(--foreground);
-	font-family: var(--font-sans); /* 수정됨 */
-	letter-spacing: -0.05rem;
+	font-family: 'Pretendard', sans-serif;
+	letter-spacing: -0.04rem;
 }
 
 /* temp */
