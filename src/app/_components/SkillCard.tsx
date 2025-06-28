@@ -6,13 +6,13 @@ interface SkillCardProps {
 }
 const SkillCard = ({ item }: SkillCardProps) => {
 	return (
-		<div className='flex flex-col justify-center items-center md:gap-6 gap-4 p-1.5 hover:scale-110 active:scale-110 bg-card-light dark:bg-card-dark '>
+		<div className='flex flex-col justify-center items-center md:gap-6 gap-4 p-1.5 hover:scale-110 active:scale-110  '>
 			<div className='relative w-9 h-9 md:w-12 md:h-12 rounded-md '>
 				<Image
 					src={item.src}
 					alt={item.name}
 					fill
-					className='object-contain rounded-md shadow-md'
+					className='object-contain rounded-md shadow-md bg-card-light dark:bg-card-dark'
 				/>
 			</div>
 
