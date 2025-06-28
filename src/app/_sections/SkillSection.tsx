@@ -27,7 +27,7 @@ const SkillSection = async () => {
 					아래의 기술을 사용할 수 있습니다.
 				</div>
 
-				<div className='grid grid-cols-3 lg:grid-cols-7 md:grid-cols-4 lg:grid-rows-2 justify-center items-center gap-2 p-2 md:p-2'>
+				<div className='grid grid-cols-3 lg:grid-cols-7 md:grid-cols-4 lg:grid-rows-2 justify-center items-center gap-x-3 md:gap-y-6 gap-y-4 p-2 md:p-2'>
 					{skills.map((item, index) => (
 						<SkillCard key={index} item={item} />
 					))}
