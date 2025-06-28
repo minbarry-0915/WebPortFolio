@@ -123,10 +123,7 @@ export default async function ProjectModalPage(props: {
 				</div>
 			</div>
 
-			<div
-				id='separator'
-				className='w-full h-[1px] bg-gradient-to-r from-background to-background my-8'
-			/>
+			<div id='separator' className='w-full h-[1px] bg-secondary my-8' />
 
 			<div id='body' className='flex flex-col gap-12 sm:text-base text-sm'>
 				{/* 개요 */}
@@ -146,7 +143,7 @@ export default async function ProjectModalPage(props: {
 					</div>
 					<ol className='flex flex-col gap-4'>
 						{project.details.map((detail, index) => (
-							<li key={index} className='space-y-2'>
+							<li key={index} className='pl-1 space-y-2'>
 								<div className='font-medium'>{`${index + 1}. ${
 									detail.title
 								}`}</div>
@@ -187,12 +184,41 @@ export default async function ProjectModalPage(props: {
 				{/* 문제 해결 */}
 				<div id='troubleshooting' className='flex flex-col'>
 					<div className='font-semibold sm:text-xl text-lg mb-3'>
-						🧠 문제 해결
+						🧠 문제 해결 사례
 					</div>
-					<ol className='flex flex-col gap-4'>
+
+					<ol className='space-y-8'>
 						{project.troubleshooting?.map((trouble, index) => (
-							<li key={index} className='font-medium'>
-								{`${index + 1}. ${trouble.title}`}
+							<li key={index} className='pl-1'>
+								<div className='font-medium mb-3'>{`${index + 1}. ${
+									trouble.title
+								}`}</div>
+
+								<div className='space-y-1 text-sm sm:text-base pl-3'>
+									<p className='font-medium text-foreground'>🧩 증상</p>
+									<p className=' text-secondary dark:text-secondary-dark dark:font-extralight pl-1'>
+										{trouble.symptom}
+									</p>
+
+									<p className='font-medium text-foreground mt-3'>🔍 원인</p>
+									<p className=' text-secondary dark:text-secondary-dark dark:font-extralight pl-1'>
+										{trouble.cause}
+									</p>
+
+									<p className='font-medium text-foreground mt-3'>
+										🛠️ 해결 과정
+									</p>
+									<ul className='list-disc list-inside pl-2 space-y-1  text-secondary dark:text-secondary-dark dark:font-extralight '>
+										{trouble.solutions.map((solution, sIdx) => (
+											<li key={sIdx}>{solution}</li>
+										))}
+									</ul>
+
+									<p className='font-medium text-foreground mt-3'>✅ 결과</p>
+									<p className=' text-secondary dark:text-secondary-dark dark:font-extralight pl-1'>
+										{trouble.result}
+									</p>
+								</div>
 							</li>
 						))}
 					</ol>

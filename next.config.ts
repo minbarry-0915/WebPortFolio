@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
 	images: {
 		domains: ['arbwgfsossidkialfitm.supabase.co'],
 	},
+	allowedDevOrigins: ['local-origin.dev', '*.local-origin.dev'],
 };
 
 export default nextConfig;
