@@ -2,7 +2,7 @@ const MainSection = () => {
 	return (
 		<div
 			id='main'
-			className='w-full h-svh flex flex-col items-center justify-center gap-[3.68rem] '
+			className='w-full h-lvh flex flex-col items-center justify-center gap-[3.68rem] '
 		>
 			<h1 className='font-bold text-4xl md:text-5xl leading-tight md:leading-normal text-center break-keep'>
 				안녕하세요,

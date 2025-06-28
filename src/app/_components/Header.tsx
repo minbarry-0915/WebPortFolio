@@ -168,7 +168,7 @@ const Header = () => {
 		isFabVisible && (
 			<Portal>
 				<button
-					className='fixed bottom-6 right-6 justify-center items-center bg-header-light/50 dark:bg-header-dark/50 p-3 rounded-full shadow-md backdrop-blur-xs dark:backdrop-blur-lg  cursor-pointer z-50 '
+					className='fixed bottom-6 right-6 justify-center items-center bg-header-light/50 dark:bg-fab-dark/50 p-3 rounded-full shadow-md backdrop-blur-xs dark:backdrop-blur-lg  cursor-pointer z-50 '
 					onClick={() => setFabOpen((v) => !v)}
 					aria-label='Toggle menu'
 					tabIndex={0}

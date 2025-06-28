@@ -53,7 +53,10 @@ const GenericRow = ({ item, icon }: GenericRowProps) => {
 								<ul className='flex-1 list-disc rounded-xl bg-foreground/5 py-5 pl-9 md:pl-11 pr-6 md:pr-10 space-y-1.5 text-secondary dark:text-secondary-dark'>
 									{item.details &&
 										item.details.map((detail, index) => (
-											<li key={index} className='text-sm md:text-base'>
+											<li
+												key={index}
+												className='text-sm md:text-base dark:font-extralight'
+											>
 												{detail}
 											</li>
 										))}
