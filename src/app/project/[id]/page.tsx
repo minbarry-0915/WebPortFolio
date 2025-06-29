@@ -6,24 +6,17 @@ import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
 type Params = Promise<{ id: string }>;
-type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
-export async function generateMetadata(props: {
-	params: Params;
-	searchParams: SearchParams;
-}) {
+export async function generateMetadata(props: { params: Params }) {
 	const params = await props.params;
-	const searchParams = await props.searchParams;
+
 	const id = params.id;
-	const query = searchParams.query;
-	console.log(id, query);
+
+	console.log(id);
 }
 
 // SSG 렌더 페이지
-export default async function ProjectModalPage(props: {
-	params: Params;
-	searchParams: SearchParams;
-}) {
+export default async function ProjectModalPage(props: { params: Params }) {
 	const { id } = await props.params;
 
 	const { data, error } = await supabase
@@ -123,7 +116,10 @@ export default async function ProjectModalPage(props: {
 				</div>
 			</div>
 
-			<div id='separator' className='w-full h-[1px] bg-secondary my-8' />
+			<div
+				id='separator'
+				className='w-full h-[1px] bg-seperator dark:bg-seperator-dark my-8'
+			/>
 
 			<div id='body' className='flex flex-col gap-12 sm:text-base text-sm'>
 				{/* 개요 */}
@@ -137,92 +133,96 @@ export default async function ProjectModalPage(props: {
 				</div>
 
 				{/* 활동 내용 */}
-				<div id='details' className='flex flex-col'>
-					<div className='font-semibold sm:text-xl text-lg mb-3'>
-						🛠️ 활동 내용
+				{project.details.length !== 0 && (
+					<div id='details' className='flex flex-col'>
+						<div className='font-semibold sm:text-xl text-lg mb-3'>
+							🛠️ 활동 내용
+						</div>
+						<ol className='flex flex-col gap-4'>
+							{project.details.map((detail, index) => (
+								<li key={index} className='pl-1 space-y-2'>
+									<div className='font-medium'>{`${index + 1}. ${
+										detail.title
+									}`}</div>
+
+									{detail.images?.map((image, idx) => (
+										<div
+											key={idx}
+											className='relative w-full sm:aspect-[16/9] aspect-[4/3]'
+										>
+											<Zoom>
+												<Image
+													alt={image.alt}
+													src={image.src}
+													fill
+													className='object-contain rounded-md'
+												/>
+											</Zoom>
+										</div>
+									))}
+
+									{detail.description && (
+										<ul className='list-disc pl-5 space-y-1 dark:font-extralight'>
+											{detail.description.map((item, itemIndex) => (
+												<li
+													key={itemIndex}
+													className='text-secondary dark:text-secondary-dark'
+												>
+													{item}
+												</li>
+											))}
+										</ul>
+									)}
+								</li>
+							))}
+						</ol>
 					</div>
-					<ol className='flex flex-col gap-4'>
-						{project.details.map((detail, index) => (
-							<li key={index} className='pl-1 space-y-2'>
-								<div className='font-medium'>{`${index + 1}. ${
-									detail.title
-								}`}</div>
-
-								{detail.images?.map((image, idx) => (
-									<div
-										key={idx}
-										className='relative w-full sm:aspect-[16/9] aspect-[4/3]'
-									>
-										<Zoom>
-											<Image
-												alt={image.alt}
-												src={image.src}
-												fill
-												className='object-contain rounded-md'
-											/>
-										</Zoom>
-									</div>
-								))}
-
-								{detail.description && (
-									<ul className='list-disc pl-5 space-y-1 dark:font-extralight'>
-										{detail.description.map((item, itemIndex) => (
-											<li
-												key={itemIndex}
-												className='text-secondary dark:text-secondary-dark'
-											>
-												{item}
-											</li>
-										))}
-									</ul>
-								)}
-							</li>
-						))}
-					</ol>
-				</div>
+				)}
 
 				{/* 문제 해결 */}
-				<div id='troubleshooting' className='flex flex-col'>
-					<div className='font-semibold sm:text-xl text-lg mb-3'>
-						🧠 문제 해결 사례
+				{project.troubleshooting && project.troubleshooting.length !== 0 && (
+					<div id='troubleshooting' className='flex flex-col'>
+						<div className='font-semibold sm:text-xl text-lg mb-3'>
+							🧠 문제 해결 사례
+						</div>
+
+						<ol className='space-y-8'>
+							{project.troubleshooting.map((trouble, index) => (
+								<li key={index} className='pl-1'>
+									<div className='font-medium mb-3'>{`${index + 1}. ${
+										trouble.title
+									}`}</div>
+
+									<div className='space-y-1 text-sm sm:text-base pl-3'>
+										<p className='font-medium text-foreground'>🧩 증상</p>
+										<p className=' text-secondary dark:text-secondary-dark dark:font-extralight pl-1'>
+											{trouble.symptom}
+										</p>
+
+										<p className='font-medium text-foreground mt-3'>🔍 원인</p>
+										<p className=' text-secondary dark:text-secondary-dark dark:font-extralight pl-1'>
+											{trouble.cause}
+										</p>
+
+										<p className='font-medium text-foreground mt-3'>
+											🛠️ 해결 과정
+										</p>
+										<ul className='list-disc list-inside pl-2 space-y-1  text-secondary dark:text-secondary-dark dark:font-extralight '>
+											{trouble.solutions.map((solution, sIdx) => (
+												<li key={sIdx}>{solution}</li>
+											))}
+										</ul>
+
+										<p className='font-medium text-foreground mt-3'>✅ 결과</p>
+										<p className=' text-secondary dark:text-secondary-dark dark:font-extralight pl-1'>
+											{trouble.result}
+										</p>
+									</div>
+								</li>
+							))}
+						</ol>
 					</div>
-
-					<ol className='space-y-8'>
-						{project.troubleshooting?.map((trouble, index) => (
-							<li key={index} className='pl-1'>
-								<div className='font-medium mb-3'>{`${index + 1}. ${
-									trouble.title
-								}`}</div>
-
-								<div className='space-y-1 text-sm sm:text-base pl-3'>
-									<p className='font-medium text-foreground'>🧩 증상</p>
-									<p className=' text-secondary dark:text-secondary-dark dark:font-extralight pl-1'>
-										{trouble.symptom}
-									</p>
-
-									<p className='font-medium text-foreground mt-3'>🔍 원인</p>
-									<p className=' text-secondary dark:text-secondary-dark dark:font-extralight pl-1'>
-										{trouble.cause}
-									</p>
-
-									<p className='font-medium text-foreground mt-3'>
-										🛠️ 해결 과정
-									</p>
-									<ul className='list-disc list-inside pl-2 space-y-1  text-secondary dark:text-secondary-dark dark:font-extralight '>
-										{trouble.solutions.map((solution, sIdx) => (
-											<li key={sIdx}>{solution}</li>
-										))}
-									</ul>
-
-									<p className='font-medium text-foreground mt-3'>✅ 결과</p>
-									<p className=' text-secondary dark:text-secondary-dark dark:font-extralight pl-1'>
-										{trouble.result}
-									</p>
-								</div>
-							</li>
-						))}
-					</ol>
-				</div>
+				)}
 			</div>
 		</div>
 	);
