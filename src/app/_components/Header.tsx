@@ -117,7 +117,7 @@ const Header = () => {
 				const y = targetEl.getBoundingClientRect().top + window.scrollY;
 
 				window.scrollTo({
-					top: y - 140, // 고정 헤더 높이만큼 보정
+					top: y - 100, // 고정 헤더 높이만큼 보정
 					behavior: 'smooth',
 				});
 
@@ -136,7 +136,7 @@ const Header = () => {
 
 	return !isMobile ? (
 		<header
-			className={`relative w-full max-w-[32rem] transition-all duration-300 mb-30 ${
+			className={`relative w-full max-w-[32rem] transition-all duration-300 ${
 				isSticky ? 'sticky top-12 z-50' : 'relative'
 			}`}
 		>

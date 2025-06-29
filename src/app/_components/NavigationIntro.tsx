@@ -12,7 +12,7 @@ const NavigationIntro = () => {
 				const y = targetEl.getBoundingClientRect().top + window.scrollY;
 
 				window.scrollTo({
-					top: y - 140, // 고정 헤더 높이만큼 보정
+					top: y - 100, // 고정 헤더 높이만큼 보정
 					behavior: 'smooth',
 				});
 			});

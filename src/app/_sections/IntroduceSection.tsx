@@ -28,7 +28,7 @@ const IntroduceSection = () => {
 	return (
 		<section
 			id='introduce'
-			className='w-full flex flex-col justify-center items-center py-32'
+			className='w-full flex flex-col justify-center items-center py-24 sm:py-48'
 		>
 			<h2 className='font-semibold text-2xl md:text-3xl mb-3 '>나의 강점</h2>
 			<div className='font-medium text-lg md:text-xl mb-12'>
