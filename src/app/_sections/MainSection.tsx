@@ -1,3 +1,5 @@
+import NavigationIntro from '../_components/NavigationIntro';
+
 const MainSection = () => {
 	return (
 		<div
@@ -18,6 +20,8 @@ const MainSection = () => {
 				<span className='text-blue'>고객 중심의 서비스</span>를 개발하고
 				있습니다.
 			</p>
+
+			<NavigationIntro />
 		</div>
 	);
 };

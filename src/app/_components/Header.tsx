@@ -7,8 +7,9 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 // 탭 라벨 및 연결된 섹션 ID 배열
-const tabs = ['기술', '경력', '프로젝트', '교육', '수상'];
+const tabs = ['핵심역량', '기술', '경력', '프로젝트', '교육', '수상'];
 const sectionIds = [
+	'introduce',
 	'skill',
 	'experience',
 	'projectDetail',
@@ -135,7 +136,7 @@ const Header = () => {
 
 	return !isMobile ? (
 		<header
-			className={`relative w-full max-w-[29rem] transition-all duration-300 ${
+			className={`relative w-full max-w-[32rem] transition-all duration-300 mb-30 ${
 				isSticky ? 'sticky top-12 z-50' : 'relative'
 			}`}
 		>

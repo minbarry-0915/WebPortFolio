@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from '@heroicons/react/24/outline';
+//import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 
 interface SkillCardProps {
@@ -18,12 +18,12 @@ const SkillCard = ({ item }: SkillCardProps) => {
 
 			<div className='flex flex-col justify-center items-center gap-1'>
 				<div className='font-medium text-base md:text-lg'>{item.name}</div>
-				<button className='flex justify-center items-center gap-1 pl-2'>
+				{/* <button className='flex justify-center items-center gap-1 pl-2'>
 					<div className='font-normal md:text-base text-[0.875rem] text-blue'>
 						정보
 					</div>
 					<ChevronRightIcon className='w-4 h-4 text-blue' />
-				</button>
+				</button> */}
 			</div>
 		</div>
 	);
