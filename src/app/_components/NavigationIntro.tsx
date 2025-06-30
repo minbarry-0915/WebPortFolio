@@ -2,8 +2,11 @@
 
 import { ChevronDoubleDownIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
 
 const NavigationIntro = () => {
+	const isMobile = useMediaQuery({ maxWidth: 768 });
+
 	const onClick = () => {
 		const targetEl = document.getElementById('introduce');
 
@@ -12,7 +15,7 @@ const NavigationIntro = () => {
 				const y = targetEl.getBoundingClientRect().top + window.scrollY;
 
 				window.scrollTo({
-					top: y - 100, // 고정 헤더 높이만큼 보정
+					top: isMobile ? y : y - 50, // 고정 헤더 높이만큼 보정
 					behavior: 'smooth',
 				});
 			});
