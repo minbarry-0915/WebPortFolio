@@ -37,8 +37,8 @@ const IntroduceSection = () => {
 			{isMobile && mounted && (
 				<div className='flex justify-center items-center gap-6'>
 					<StrengthCard
-						title='React 기반 개발 경험'
-						description='React Native, React, Next.js를 활용해 실제 서비스를 개발한 경험이 있으며, TypeScript 기반의 안정적인 코드 작성에 능숙합니다.'
+						title='React 생태계에 대한 깊은 이해'
+						description='React Native, React, Next.js를 활용한 서비스를 개발한 경험이 있으며, TypeScript 기반의 안정적인 코드 작성에 능숙합니다.'
 						initialX={250}
 						initialRotate={-25}
 						whileInViewRotate={-7}
