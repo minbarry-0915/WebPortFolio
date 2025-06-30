@@ -35,7 +35,7 @@ const StrengthCard = ({
 			transition={{ type: 'spring', stiffness: 70 }}
 			className='w-3xs aspect-square flex flex-col items-center justify-center bg-card-light dark:bg-card-dark rounded-2xl shadow-md z-1 p-4 gap-2'
 		>
-			<p className='font-semibold text-xl text-center'>{title}</p>
+			<p className='font-semibold text-xl text-center break-keep'>{title}</p>
 			<div className='relative z-20 font-extralight text-center break-keep'>
 				{description}
 			</div>
