@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import '../styles/swiper-custom.css';
 
 const cardData = [
 	{
@@ -50,14 +51,14 @@ const IntroduceSection = () => {
 			className='w-full flex flex-col justify-center items-center py-24 sm:py-48'
 		>
 			<h2 className='font-semibold text-2xl md:text-3xl mb-3'>나의 강점</h2>
-			<div className='font-medium text-lg md:text-xl mb-12'>
+			<div className='font-medium text-lg md:text-xl sm:mb-12 mb-9'>
 				기술로 말하고, 결과로 증명하며, 소통으로 잇습니다
 			</div>
 
 			{mounted && isMobile ? (
 				<Swiper
 					slidesPerView={1}
-					spaceBetween={1}
+					spaceBetween={4}
 					loop={true}
 					modules={[Pagination]}
 					pagination={{ clickable: true }}
