@@ -1,22 +1,26 @@
-'use client';
+"use client";
 
-import { ChevronDoubleDownIcon } from '@heroicons/react/24/outline';
-import { motion } from 'framer-motion';
-import { useMediaQuery } from 'react-responsive';
+import { ChevronDoubleDownIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
+// import { useMediaQuery } from "react-responsive";
 
-const NavigationIntro = () => {
-	const isMobile = useMediaQuery({ maxWidth: 768 });
+interface NavigationIntroProps {
+	targetElementId: "introduce" | "skill";
+}
+const NavigationIntro = ({ targetElementId }: NavigationIntroProps) => {
+	// const isMobile = useMediaQuery({ maxWidth: 768 });
 
 	const onClick = () => {
-		const targetEl = document.getElementById('introduce');
+		const targetEl = document.getElementById(targetElementId);
 
 		if (targetEl) {
 			requestAnimationFrame(() => {
 				const y = targetEl.getBoundingClientRect().top + window.scrollY;
 
 				window.scrollTo({
-					top: isMobile ? y : y - 50, // 고정 헤더 높이만큼 보정
-					behavior: 'smooth',
+					// top: isMobile ? y : y - 50, // 고정 헤더 높이만큼 보정
+					top: y,
+					behavior: "smooth",
 				});
 			});
 		}
@@ -30,9 +34,9 @@ const NavigationIntro = () => {
 			transition={{
 				duration: 1.5,
 				repeat: Infinity,
-				ease: 'easeInOut',
+				ease: "easeInOut",
 			}}
-			className='flex flex-col items-center text-gray-500 dark:text-gray-300'
+			className='flex flex-col items-center text-gray-500 dark:text-gray-300 absolute bottom-20 z-100'
 		>
 			<ChevronDoubleDownIcon className='w-6 h-6' />
 		</motion.button>
