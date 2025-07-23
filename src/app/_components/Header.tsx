@@ -89,7 +89,7 @@ const Header = () => {
 			},
 			{
 				root: null, // viewport 기준
-				threshold: 0.5, // 50% 이상 보여야 감지
+				threshold: 0.8, // 50% 이상 보여야 감지
 				rootMargin: '-80px 0px 0px 0px', // 고정 헤더 보정 (헤더가 겹쳐도 정확히 감지)
 			}
 		);

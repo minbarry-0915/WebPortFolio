@@ -15,8 +15,8 @@ const SectionContainer = ({
 	children,
 }: SectionContainerProps) => {
 	return (
-		<SlideUpInView>
-			<section id={id} className='w-full flex flex-col py-12 sm:py-36'>
+		<section id={id} className='w-full flex flex-col py-12 sm:py-24'>
+			<SlideUpInView>
 				<p className='font-normal text-base md:text-lg text-blue mb-2 md:mb-6'>
 					{title}
 				</p>
@@ -24,8 +24,8 @@ const SectionContainer = ({
 					{subtitle}
 				</h1>
 				{children}
-			</section>
-		</SlideUpInView>
+			</SlideUpInView>
+		</section>
 	);
 };
 

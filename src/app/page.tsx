@@ -1,6 +1,7 @@
 import Header from './_components/Header';
 import AwardSection from './_sections/AwardSection';
 import EducationSection from './_sections/EducationSection';
+import Footer from './_sections/Footer';
 import IntroduceSection from './_sections/IntroduceSection';
 import MainSection from './_sections/MainSection';
 import ProjectDetailSection from './_sections/ProjectDetailSection';
@@ -20,6 +21,7 @@ export default function Home() {
 				<EducationSection />
 				<AwardSection />
 			</div>
+			<Footer />
 		</main>
 	);
 }
