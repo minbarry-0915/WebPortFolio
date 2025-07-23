@@ -117,9 +117,13 @@ const Header = () => {
 				const y = targetEl.getBoundingClientRect().top + window.scrollY;
 
 				window.scrollTo({
-					top: y - 100, // 고정 헤더 높이만큼 보정
+					//top: isMobile ? y - 20 : y - 100, // 고정 헤더 높이만큼 보정
+					top: y,
 					behavior: 'smooth',
 				});
+
+				// 라우팅 추적
+				// window.history.pushState(null, "", `#${targetId}`);
 
 				// 일정 시간 후 observer 재작동
 				setTimeout(() => {

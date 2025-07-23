@@ -1,29 +1,29 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useMediaQuery } from 'react-responsive';
-import StrengthCard from '../_components/StengthCard';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import '../styles/swiper-custom.css';
+import { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
+import StrengthCard from "../_components/StengthCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "../styles/swiper-custom.css";
 
 const cardData = [
 	{
-		title: 'React 생태계에 대한 깊은 이해',
+		title: "React 생태계에 대한 깊은 이해",
 		description:
-			'React Native, React, Next.js를 활용한 서비스를 개발한 경험이 있으며, TypeScript 기반의 안정적인 코드 작성에 능숙합니다.',
+			"React Native, React, Next.js를 활용한 서비스를 개발한 경험이 있으며, TypeScript 기반의 안정적인 코드 작성에 능숙합니다.",
 	},
 	{
-		title: '맞춤형 AI 서비스 구현',
+		title: "맞춤형 AI 서비스 구현",
 		description:
-			'다양한 AI 기술을 접목해 개인화된 사용자 경험을 제공하는 맞춤형 서비스를 구현한 경험이 있습니다.',
+			"다양한 AI 기술을 접목해 개인화된 사용자 경험을 제공하는 맞춤형 서비스를 구현한 경험이 있습니다.",
 	},
 	{
-		title: '원활한 협업과 커뮤니케이션',
+		title: "원활한 협업과 커뮤니케이션",
 		description:
-			'풀스택 개발 경험을 통한 디자이너, 기획자, 백엔드 개발자 등 다양한 직군과 원활하게 소통하며 협업할 수 있습니다.',
+			"풀스택 개발 경험을 통한 디자이너, 기획자, 백엔드 개발자 등 다양한 직군과 원활하게 소통하며 협업할 수 있습니다.",
 	},
 ];
 
@@ -34,21 +34,21 @@ const IntroduceSection = () => {
 
 	useEffect(() => {
 		setMounted(true);
-		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+		const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 		setIsDark(mediaQuery.matches);
 
 		const handleChange = (e: MediaQueryListEvent) => {
 			setIsDark(e.matches);
 		};
 
-		mediaQuery.addEventListener('change', handleChange);
-		return () => mediaQuery.removeEventListener('change', handleChange);
+		mediaQuery.addEventListener("change", handleChange);
+		return () => mediaQuery.removeEventListener("change", handleChange);
 	}, []);
 
 	return (
 		<section
 			id='introduce'
-			className='w-full flex flex-col justify-center items-center py-24 sm:py-48'
+			className='w-full h-svh flex flex-col justify-center items-center relative'
 		>
 			<h2 className='font-semibold text-2xl md:text-3xl mb-3'>나의 강점</h2>
 			<div className='font-medium text-lg md:text-xl sm:mb-12 mb-9'>
@@ -63,20 +63,20 @@ const IntroduceSection = () => {
 					modules={[Pagination]}
 					pagination={{ clickable: true }}
 					style={{
-						display: 'flex',
-						width: '100%',
-						paddingTop: '1rem',
-						paddingBottom: '3rem',
+						display: "flex",
+						width: "100%",
+						paddingTop: "1rem",
+						paddingBottom: "3rem",
 					}}
 				>
 					{cardData.map((card) => (
 						<SwiperSlide
 							key={card.title}
 							style={{
-								display: 'flex',
-								justifyContent: 'center',
-								alignItems: 'center',
-								height: '100%',
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+								height: "100%",
 							}}
 						>
 							<StrengthCard
@@ -104,6 +104,7 @@ const IntroduceSection = () => {
 					))}
 				</div>
 			)}
+			{/* <NavigationIntro targetElementId='skill' /> */}
 		</section>
 	);
 };
