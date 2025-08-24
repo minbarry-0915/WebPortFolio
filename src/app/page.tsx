@@ -14,13 +14,11 @@ export default function Home() {
 			<MainSection />
 			<Header />
 			<IntroduceSection />
-			<div className='flex flex-col gap-12'>
-				<SkillSection />
-				<WorkExperienceSection />
-				<ProjectDetailSection />
-				<EducationSection />
-				<AwardSection />
-			</div>
+			<SkillSection />
+			<WorkExperienceSection />
+			<ProjectDetailSection />
+			<EducationSection />
+			<AwardSection />
 			<Footer />
 		</main>
 	);
