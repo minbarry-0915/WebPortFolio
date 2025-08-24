@@ -46,9 +46,9 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
 				scale: 1,
 				boxShadow: isDark ? 'none' : '0 0 10px rgba(0,0,0,0.2)',
 			}}
-			className='flex flex-col dark:bg-card-dark bg-card-light dark:shadow-none rounded-2xl p-[1.125rem] justify-between text-foreground cursor-pointer'
+			className='flex flex-col min-h-52 dark:bg-card-dark bg-card-light dark:shadow-none rounded-2xl p-[1.125rem] justify-between text-foreground cursor-pointer'
 		>
-			<div className='flex flex-col w-full text-start gap-4'>
+			<div className='flex flex-col w-full h-full text-start gap-4'>
 				<div className='flex justify-between items-center'>
 					<p className='font-semibold text-base md:text-lg'>{item.title}</p>
 					<WebMobileIcon webMobile={item.webmobile} />
@@ -66,7 +66,7 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
 					})()}
 				</div>
 
-				<div className='flex flex-col gap-1'>
+				<div className='flex flex-col gap-1 '>
 					<p className='flex font-medium text-sm md:text-base text-secondary dark:text-secondary-dark'>
 						{item.description}
 					</p>
