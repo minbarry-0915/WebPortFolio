@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 // import { gothicNeo } from './util/font';
-
+import { Analytics } from '@vercel/analytics/next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
@@ -62,6 +62,7 @@ export default function RootLayout({
 				{children}
 				{modal}
 				<div id='portal-root' />
+				<Analytics />
 			</body>
 		</html>
 	);
