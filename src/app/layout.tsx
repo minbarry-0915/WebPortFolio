@@ -3,7 +3,7 @@ import './globals.css';
 // import { gothicNeo } from './util/font';
 import { Analytics } from '@vercel/analytics/next';
 import { ReactNode } from 'react';
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 export const metadata: Metadata = {
 	title: '이지민 | 프론트엔드 개발자 포트폴리오',
 	description:
@@ -63,6 +63,7 @@ export default function RootLayout({
 				{modal}
 				<div id='portal-root' />
 				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	);
